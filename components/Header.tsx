@@ -21,9 +21,16 @@ export function Header() {
           <div className="flex flex-wrap gap-2">
             <Link
               href={contactDetails.whatsappLink}
-              className="rounded-full bg-[var(--color-plum)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white transition-opacity hover:opacity-90"
+              className="inline-flex min-w-[124px] items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition-opacity hover:opacity-90"
               target="_blank"
               rel="noreferrer"
+              aria-label="Open WhatsApp chat"
+              style={{
+                backgroundColor: "#5f5698",
+                color: "#ffffff",
+                boxShadow: "0 10px 24px rgba(95,86,152,0.24)",
+                letterSpacing: "0.04em",
+              }}
             >
               WhatsApp
             </Link>
