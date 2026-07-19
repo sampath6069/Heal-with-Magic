@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3001");
 
   return (
     <PageShell
       eyebrow="Contact"
-      title="Begin with a conversation, a booking, or a gentle next step."
-      description="Reach out to Shamitha directly to ask questions, enquire about sessions, or discuss which healing program may be right for you."
+      title="Use this page for direct contact, paid program joining, or general questions."
+      description="If you want to book a free session, use the dedicated booking form first. This page is best for direct contact, joining a paid program, or asking questions before you decide."
     >
       <section className="section-shell pt-6">
         <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
@@ -45,53 +45,124 @@ export default function ContactPage() {
               </p>
             </div>
             <p className="mt-6 text-base leading-8 text-[var(--color-muted)]">
-              You can use email or WhatsApp to enquire about private sessions,
-              21-day healing programs, or personalized support.
+              Use this page if you want to send a direct enquiry, ask a question,
+              contact the team on WhatsApp, or join a paid program. If you want
+              a free session first, please use the dedicated booking form.
             </p>
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              <div className="rounded-[1.5rem] bg-[var(--color-plum)] px-4 py-4 text-center text-white shadow-[0_12px_30px_rgba(95,86,152,0.22)]">
-                <p className="text-xs uppercase tracking-[0.18em] text-white/80">
-                  Career and Money
-                </p>
-                <p className="mt-2 text-2xl font-semibold">Rs. 999</p>
-              </div>
-              <div className="rounded-[1.5rem] bg-[var(--color-plum)] px-4 py-4 text-center text-white shadow-[0_12px_30px_rgba(95,86,152,0.22)]">
-                <p className="text-xs uppercase tracking-[0.18em] text-white/80">
-                  Health and Relationships
-                </p>
-                <p className="mt-2 text-2xl font-semibold">Rs. 999</p>
-              </div>
-              <div className="rounded-[1.5rem] bg-[var(--color-coral)] px-4 py-4 text-center text-white shadow-[0_12px_30px_rgba(241,138,105,0.24)]">
-                <p className="text-xs uppercase tracking-[0.18em] text-white/80">
-                  1:1 Healing
-                </p>
-                <p className="mt-2 text-2xl font-semibold">Rs. 9999</p>
-              </div>
+              {[
+                "General questions",
+                "WhatsApp contact",
+                "Paid program guidance",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-[1.4rem] border border-white/70 bg-white/75 px-4 py-4 text-center text-sm font-semibold text-[var(--color-plum-deep)] shadow-[0_10px_24px_rgba(87,69,127,0.06)]"
+                >
+                  {item}
+                </div>
+              ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href={contactDetails.bookingLink} className="button-primary">
                 Book a Free Session
               </Link>
-              <Link href={contactDetails.whatsappLink} className="button-secondary">
-                WhatsApp
+              <Link href={contactDetails.whatsappLink} className="button-secondary" target="_blank" rel="noreferrer">
+                Ask on WhatsApp
               </Link>
             </div>
           </div>
 
           <div className="rounded-[2rem] bg-[linear-gradient(160deg,rgba(255,255,255,0.92),rgba(228,223,249,0.78),rgba(243,216,220,0.7))] p-8">
             <h2 className="font-display text-4xl text-[var(--color-plum)]">
-              Send a message
+              Join a paid healing program
             </h2>
             <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-              If you are unsure which program or session is right for you, simply send a
-              message with what you are currently struggling with. Guidance can
-              then be shared on the most suitable session or program.
+              If you already know which program you want, you can pay securely
+              here and then continue on WhatsApp for joining guidance and next steps.
             </p>
             <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-              Session availability, pricing, and next steps can be shared
-              personally after your enquiry so the support feels more tailored
-              to your needs.
+              After payment:
+              secure your place, receive WhatsApp confirmation, and get the details needed to begin your 21-day journey.
             </p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                "Pay securely online",
+                "Receive WhatsApp confirmation",
+                "Get joining details quickly",
+                "Ask before joining anytime",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-[1.25rem] border border-white/60 bg-white/75 px-4 py-4 text-center text-sm font-semibold text-[var(--color-plum-deep)] shadow-[0_10px_24px_rgba(87,69,127,0.08)]"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <Link
+                href="https://rzp.io/rzp/5riZg4o"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-[1.5rem] border border-white/15 bg-[var(--color-plum-deep)] px-4 py-4 text-center text-white shadow-[0_12px_30px_rgba(95,86,152,0.22)]"
+              >
+                <p className="text-xs uppercase tracking-[0.18em] text-white/85">
+                  Career and Money
+                </p>
+                <p className="mt-3 inline-flex rounded-full bg-white px-4 py-1.5 text-2xl font-semibold text-[var(--color-plum-deep)] shadow-[0_10px_24px_rgba(0,0,0,0.18)]">
+                  Pay Rs. 999
+                </p>
+              </Link>
+              <Link
+                href="https://rzp.io/rzp/Knio3WE"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-[1.5rem] border border-white/15 bg-[var(--color-plum-deep)] px-4 py-4 text-center text-white shadow-[0_12px_30px_rgba(95,86,152,0.22)]"
+              >
+                <p className="text-xs uppercase tracking-[0.18em] text-white/85">
+                  Health and Relationships
+                </p>
+                <p className="mt-3 inline-flex rounded-full bg-white px-4 py-1.5 text-2xl font-semibold text-[var(--color-plum-deep)] shadow-[0_10px_24px_rgba(0,0,0,0.18)]">
+                  Pay Rs. 999
+                </p>
+              </Link>
+              <Link
+                href="https://rzp.io/rzp/BeObdQ12"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-[1.5rem] border border-white/15 bg-[var(--color-coral)] px-4 py-4 text-center text-white shadow-[0_12px_30px_rgba(241,138,105,0.24)]"
+              >
+                <p className="text-xs uppercase tracking-[0.18em] text-white/85">
+                  One-to-One Healing
+                </p>
+                <p className="mt-3 inline-flex rounded-full bg-white px-4 py-1.5 text-2xl font-semibold text-[var(--color-coral)] shadow-[0_10px_24px_rgba(0,0,0,0.18)]">
+                  Pay Rs. 9999
+                </p>
+              </Link>
+              <Link
+                href="https://wa.me/919686525789?text=Hello%20Heal%20with%20Magic%20team%2C%0AI%20am%20interested%20in%20the%20%22Chakra%20Healing%22%20program.%0AI%20would%20like%20to%20ask%20about%20joining%20and%20payment%20details."
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-[1.5rem] border border-white/15 bg-[var(--color-plum-deep)] px-4 py-4 text-center text-white shadow-[0_12px_30px_rgba(95,86,152,0.22)]"
+              >
+                <p className="text-xs uppercase tracking-[0.18em] text-white/85">
+                  Chakra Healing
+                </p>
+                <p className="mt-3 inline-flex rounded-full bg-white px-4 py-1.5 text-xl font-semibold text-[var(--color-plum-deep)] shadow-[0_10px_24px_rgba(0,0,0,0.18)]">
+                  Ask to Join
+                </p>
+              </Link>
+            </div>
+
+            <div className="mt-8 rounded-[1.7rem] border border-white/60 bg-white/70 p-6 shadow-[0_16px_40px_rgba(95,86,152,0.08)]">
+              <h3 className="font-display text-3xl text-[var(--color-plum)]">
+                Ask before joining
+              </h3>
+              <p className="mt-3 text-base leading-8 text-[var(--color-muted)]">
+                If you still want to ask a question before paying, use the form below and you will receive a personal response by email.
+              </p>
+            </div>
 
             <form
               action={`https://formsubmit.co/${contactDetails.email}`}
@@ -172,7 +243,8 @@ export default function ContactPage() {
                   </option>
                   <option>Group Healing for Career and Money - Rs. 999</option>
                   <option>Group Healing for Health and Relationships - Rs. 999</option>
-                  <option>1:1 Healing - Rs. 9999</option>
+                  <option>One-to-One Healing - Rs. 9999</option>
+                  <option>Chakra Healing - Rs. 999</option>
                 </select>
               </div>
 

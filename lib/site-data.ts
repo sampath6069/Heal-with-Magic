@@ -31,29 +31,100 @@ export const services = [
   },
 ] as const;
 
+export const contactDetails = {
+  name: "Shamitha Venkat",
+  email: "magical.universe.222@gmail.com",
+  phone: "9686525789",
+  instagram: "@healwithmagic",
+  bookingLink: "/book-free-session",
+  whatsappNumber: "919686525789",
+  whatsappLink: "https://wa.me/919686525789",
+  instagramLink: "https://www.instagram.com/healwithmagic?igsh=MTF4eHVibG0xODh2bA==",
+} as const;
+
 export const programs = [
   {
     name: "Group Healing for Career and Money",
     duration: "21 Days",
     price: "Rs. 999",
+    paymentLink: "https://rzp.io/rzp/5riZg4o",
+    joinLabel: "Join This Program",
+    paymentNote:
+      "After payment, you can continue on WhatsApp to receive joining guidance and the next instructions.",
+    featured: true,
     description:
       "A 21-day group healing journey focused on career growth, money blocks, abundance, and energetic alignment.",
+    idealFor: [
+      "Feeling stuck in career progress",
+      "Repeating money stress or fear",
+      "Wanting more confidence in receiving and growth",
+    ],
+    outcome: "Clarity, abundance mindset, and stronger career energy",
   },
   {
     name: "Group Healing for Health and Relationships",
     duration: "21 Days",
     price: "Rs. 999",
+    paymentLink: "https://rzp.io/rzp/Knio3WE",
+    joinLabel: "Join This Program",
+    paymentNote:
+      "After payment, you can continue on WhatsApp to receive joining guidance and the next instructions.",
+    featured: false,
     description:
       "A 21-day group healing journey created to support emotional well-being, health, inner balance, and relationship healing.",
+    idealFor: [
+      "Emotional heaviness affecting daily life",
+      "Relationship stress or repeated misunderstandings",
+      "Wanting more peace, balance, and connection",
+    ],
+    outcome: "Emotional calm, softer relationships, and inner balance",
   },
   {
-    name: "1:1 Healing",
+    name: "One-to-One Healing",
     duration: "21 Days",
     price: "Rs. 9999",
+    paymentLink: "https://rzp.io/rzp/BeObdQ12",
+    joinLabel: "Join This Program",
+    paymentNote:
+      "After payment, you can continue on WhatsApp to receive joining guidance and the next instructions.",
+    featured: false,
     description:
       "A personalized 21-day private healing experience with focused one-to-one guidance for deeper transformation and support.",
+    idealFor: [
+      "Needing private personal guidance",
+      "Going through a more sensitive life challenge",
+      "Wanting deeper support and direct healing attention",
+    ],
+    outcome: "Personalized support, deeper release, and dedicated guidance",
+  },
+  {
+    name: "Chakra Healing",
+    duration: "21 Days",
+    price: "Rs. 999",
+    paymentLink: getProgramInquiryLink("Chakra Healing"),
+    joinLabel: "Ask to Join",
+    featured: false,
+    description:
+      "A 21-day group healing journey focused on balancing the chakras, clearing energetic heaviness, and helping you feel more grounded, open, and aligned.",
+    idealFor: [
+      "Feeling energetically blocked or drained",
+      "Wanting more inner balance and emotional steadiness",
+      "Seeking gentle chakra support and energetic clarity",
+    ],
+    outcome: "Better energetic balance, emotional lightness, and inner alignment",
+    paymentNote: "For this program, joining details and payment guidance are currently shared on WhatsApp first.",
   },
 ] as const;
+
+export function getProgramInquiryLink(programName: string) {
+  const lines = [
+    "Hello Heal with Magic team,",
+    `I am interested in the "${programName}" program.`,
+    "I would like to ask a few questions before joining.",
+  ];
+
+  return `https://wa.me/${contactDetails.whatsappNumber}?text=${encodeURIComponent(lines.join("\n"))}`;
+}
 
 export const testimonials = [
   {
@@ -76,6 +147,57 @@ export const testimonials = [
   },
 ] as const;
 
+export const faqs = [
+  {
+    question: "Are the sessions online or offline?",
+    answer:
+      "The healing support is offered online, so you can join from wherever you are in a calm and private space.",
+  },
+  {
+    question: "What happens after I book a free session?",
+    answer:
+      "You fill in your details first, your enquiry reaches the team by email, and then WhatsApp opens with your message prepared. From there, you can receive guidance on the best next step for your situation.",
+  },
+  {
+    question: "What happens after I pay for a program?",
+    answer:
+      "After payment, you can reach out on WhatsApp and you will receive the joining details, next instructions, and guidance on how your 21-day journey begins.",
+  },
+  {
+    question: "How do I know which program is right for me?",
+    answer:
+      "If you are unsure, start with the free session. That makes it easy to explain what you are going through and receive guidance before choosing a program.",
+  },
+  {
+    question: "Is one-to-one healing more private?",
+    answer:
+      "Yes. One-to-one healing is better for people who want more focused personal support, privacy, and deeper guidance over the 21-day period.",
+  },
+  {
+    question: "Can I ask questions before paying?",
+    answer:
+      "Yes. You can use the Ask Before Joining option, WhatsApp, email, or the free session flow to ask questions before joining any program.",
+  },
+] as const;
+
+export const bookingSteps = [
+  {
+    title: "Share your details",
+    description:
+      "Fill in your name, contact number, and a few short details about what you want support with.",
+  },
+  {
+    title: "Continue on WhatsApp",
+    description:
+      "After that, WhatsApp opens with your information already prepared in a message for the team.",
+  },
+  {
+    title: "Receive your next step",
+    description:
+      "The admin team can respond faster, ask any follow-up questions, and guide you toward the right session or healing path.",
+  },
+] as const;
+
 export const blogPosts = [
   {
     category: "Emotional Healing",
@@ -85,7 +207,7 @@ export const blogPosts = [
   },
   {
     category: "Manifestation",
-    title: "The feminine way to work with desire and abundance",
+    title: "A gentle way to work with desire and abundance",
     excerpt:
       "Discover how softness, trust, and emotional alignment can support more natural and meaningful manifestations.",
   },
@@ -96,13 +218,3 @@ export const blogPosts = [
       "Real healing often begins with subtle inner shifts. Learn how to recognize the signs of meaningful transformation.",
   },
 ] as const;
-
-export const contactDetails = {
-  name: "Shamitha Venkat",
-  email: "magical.universe.222@gmail.com",
-  phone: "9686525789",
-  instagram: "@healwithmagic",
-  bookingLink: "/contact",
-  whatsappLink: "https://wa.me/919686525789",
-  instagramLink: "https://www.instagram.com/healwithmagic?igsh=MTF4eHVibG0xODh2bA==",
-} as const;

@@ -16,8 +16,7 @@ export default function OpenGraphImage() {
           width: "100%",
           display: "flex",
           position: "relative",
-          background:
-            "linear-gradient(135deg, #fbf9ff 0%, #f4eef9 45%, #efe7f8 100%)",
+          backgroundColor: "#f6f1fb",
           color: "#5f5698",
           fontFamily: "serif",
           overflow: "hidden",
@@ -28,7 +27,7 @@ export default function OpenGraphImage() {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(circle at 15% 18%, rgba(95,86,152,0.16), transparent 20%), radial-gradient(circle at 80% 22%, rgba(241,138,105,0.18), transparent 20%), radial-gradient(circle at 78% 80%, rgba(228,223,249,0.9), transparent 24%)",
+              "linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(238,230,248,0.9) 100%)",
           }}
         />
 
@@ -68,6 +67,7 @@ export default function OpenGraphImage() {
               flexDirection: "column",
               width: 650,
               gap: 20,
+              zIndex: 1,
             }}
           >
             <div
@@ -86,17 +86,18 @@ export default function OpenGraphImage() {
                 color: "#66627f",
               }}
             >
-              Gentle healing, manifestation, and transformation for women
+              Gentle healing, manifestation, and transformation for people
               ready to release, align, and grow.
             </div>
             <div
               style={{
-                display: "flex",
-                gap: 18,
-                marginTop: 10,
-              }}
-            >
-              {["21-day programs", "1:1 healing", "WhatsApp support"].map(
+              display: "flex",
+              gap: 18,
+              flexWrap: "wrap",
+              marginTop: 10,
+            }}
+          >
+              {["21-day programs", "One-to-one healing", "WhatsApp support"].map(
                 (item) => (
                   <div
                     key={item}
@@ -125,10 +126,11 @@ export default function OpenGraphImage() {
               width: 320,
               height: 320,
               borderRadius: 999,
-              background: "rgba(255,255,255,0.88)",
+              backgroundColor: "rgba(255,255,255,0.92)",
               boxShadow: "0 30px 70px rgba(95,86,152,0.15)",
               border: "8px solid rgba(255,255,255,0.72)",
               position: "relative",
+              zIndex: 1,
             }}
           >
             <div
@@ -139,7 +141,7 @@ export default function OpenGraphImage() {
                 width: 240,
                 height: 240,
                 borderRadius: 999,
-                background: "linear-gradient(180deg, #6a63a4 0%, #5f5698 100%)",
+                backgroundColor: "#5f5698",
                 color: "#d6efe6",
                 fontSize: 38,
                 textAlign: "center",

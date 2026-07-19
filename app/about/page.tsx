@@ -12,8 +12,8 @@ export default function AboutPage() {
   return (
     <PageShell
       eyebrow="About"
-      title="Heal with Magic is a sanctuary for feminine restoration."
-      description="This space is designed for women who want to heal gently, grow with intention, and feel supported while creating new chapters in love, confidence, peace, and abundance."
+      title="Heal with Magic is a gentle healing space built on trust, warmth, and practical emotional support."
+      description="This space is designed for anyone who wants healing that feels compassionate, grounded, and easy to begin while creating new chapters in peace, confidence, love, and abundance."
     >
       <section className="section-shell pt-6">
         <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
@@ -46,18 +46,21 @@ export default function AboutPage() {
             <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
               Shamitha Venkat is a certified healer who offers a warm,
               compassionate, and heart-led approach to personal transformation.
-              She has been mentored by Mithesh Khatri and Indhu Khatri, and her
-              work is rooted in helping women heal emotional pain, reconnect
-              with their inner strength, and move forward with greater peace and
-              clarity.
+              Mentored by Mithesh Khatri and Indhu Khatri, she created Heal with
+              Magic for people who want emotional healing support that feels safe,
+              personal, and genuinely caring.
             </p>
             <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
               Alongside her healing path, Shamitha also works as an IT
               professional. This blend of intuition and grounded real-world
               experience allows her to support clients with both sensitivity and
               practicality. Her friendly and approachable nature helps create a
-              safe space where women can feel comfortable, understood, and
+              safe space where people can feel comfortable, understood, and
               gently guided through their healing journey.
+            </p>
+            <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+              Her intention is simple: to help each person feel lighter, more
+              emotionally supported, and clearer about the next step forward.
             </p>
           </div>
           <div className="rounded-[2rem] bg-[linear-gradient(150deg,rgba(248,226,234,0.92),rgba(255,248,241,0.95))] p-8">
@@ -78,6 +81,24 @@ export default function AboutPage() {
               is always supportive, respectful, and centered on lasting inner
               change.
             </p>
+          </div>
+          <div className="rounded-[2rem] border border-white/70 bg-white/82 p-8 shadow-[0_18px_46px_rgba(95,86,152,0.08)]">
+            <p className="eyebrow">Why people connect with this work</p>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              {[
+                "Warm and non-judgmental support",
+                "Online guidance that feels personal",
+                "A balance of intuition and practicality",
+                "Healing paths for love, peace, and abundance",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-[1.4rem] bg-[rgba(248,244,251,0.9)] px-5 py-4 text-sm uppercase tracking-[0.16em] text-[var(--color-plum)]"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         </div>

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3001");
 
 const displayFont = Cormorant_Garamond({
   variable: "--font-display",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     "healing sessions",
     "Ho'oponopono healing",
     "energy healing",
-    "women's healing support",
+    "holistic healing support",
     "healing programs India",
   ],
   icons: {
@@ -63,7 +64,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
