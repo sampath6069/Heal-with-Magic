@@ -66,6 +66,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const socialLinks = contactDetails.instagramLink ? [contactDetails.instagramLink] : [];
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -79,7 +80,7 @@ export default function RootLayout({
         name: "Shamitha Venkat",
         url: siteUrl,
         email: contactDetails.email,
-        sameAs: [contactDetails.instagramLink],
+        sameAs: socialLinks,
       },
       {
         "@type": "Organization",
@@ -87,7 +88,7 @@ export default function RootLayout({
         url: siteUrl,
         email: contactDetails.email,
         telephone: contactDetails.phone,
-        sameAs: [contactDetails.instagramLink],
+        sameAs: socialLinks,
       },
     ],
   };

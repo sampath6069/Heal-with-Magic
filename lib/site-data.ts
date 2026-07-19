@@ -38,7 +38,7 @@ export const contactDetails = {
   instagram: "@healwithmagic",
   whatsappNumber: "919686525789",
   whatsappLink: "https://wa.me/919686525789",
-  instagramLink: "https://www.instagram.com/healwithmagic/",
+  instagramLink: "https://www.instagram.com/healwithmagic",
   bookingLink:
     "https://wa.me/919686525789?text=Hello%20Shamitha%2C%20I%20would%20like%20to%20book%20a%20free%20session.",
 } as const;
