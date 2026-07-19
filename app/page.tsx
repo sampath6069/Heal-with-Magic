@@ -83,7 +83,7 @@ export default function Home() {
               You may be in the right place if you are feeling one or more of these right now.
             </h2>
           </div>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {[
               "You feel emotionally heavy and want peace without pretending everything is fine.",
               "You are facing repeated blocks in money, career, relationships, or self-worth.",
@@ -108,7 +108,7 @@ export default function Home() {
                 Start with a free session if you want guidance first. Choose a paid 21-day program if you already know the area you want support with. Choose one-to-one healing if you want more private and focused personal support.
               </p>
             </div>
-            <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {programs.map((program) => (
                 <article
                   key={program.name}

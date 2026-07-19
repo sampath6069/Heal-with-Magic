@@ -100,7 +100,7 @@ export const programs = [
   {
     name: "Chakra Healing",
     duration: "21 Days",
-    price: "Rs. 999",
+    price: "Rs. 1122",
     paymentLink: getProgramInquiryLink("Chakra Healing"),
     joinLabel: "Ask to Join",
     featured: false,

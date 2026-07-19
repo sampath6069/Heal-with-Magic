@@ -244,7 +244,7 @@ export default function ContactPage() {
                   <option>Group Healing for Career and Money - Rs. 999</option>
                   <option>Group Healing for Health and Relationships - Rs. 999</option>
                   <option>One-to-One Healing - Rs. 9999</option>
-                  <option>Chakra Healing - Rs. 999</option>
+                  <option>Chakra Healing - Rs. 1122</option>
                 </select>
               </div>
 

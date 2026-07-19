@@ -17,7 +17,7 @@ export default function ProgramsPage() {
       description="These 21-day healing options are designed to make the decision simple. Start with the area where you feel the most emotional weight right now, or choose private support if you want more focused personal guidance."
     >
       <section className="section-shell pt-6">
-        <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {programs.map((program) => (
             <article
               key={program.name}
