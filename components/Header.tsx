@@ -16,7 +16,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-20 border-b border-[rgba(87,69,127,0.12)] bg-[rgba(250,246,252,0.82)] backdrop-blur-2xl">
+    <header className="z-20 border-b border-[rgba(87,69,127,0.12)] bg-[rgba(250,246,252,0.82)] backdrop-blur-2xl">
       <div className="mx-auto flex w-[min(1120px,calc(100%-2rem))] flex-col gap-4 py-4 sm:w-[min(1120px,calc(100%-3rem))] lg:flex-row lg:items-center lg:justify-between">
         <Link href="/" className="self-start">
           <LogoMark />
