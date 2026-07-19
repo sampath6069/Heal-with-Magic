@@ -39,9 +39,7 @@ export default function ContactPage() {
               </p>
               <p>
                 Instagram:{" "}
-                <Link href={contactDetails.instagramLink}>
-                  {contactDetails.instagram}
-                </Link>
+                <span>{contactDetails.instagram}</span>
               </p>
             </div>
             <p className="mt-6 text-base leading-8 text-[var(--color-muted)]">

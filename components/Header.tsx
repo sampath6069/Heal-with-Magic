@@ -50,12 +50,9 @@ export function Header() {
             >
               WhatsApp
             </Link>
-            <Link
-              href={contactDetails.instagramLink}
-              className="hidden rounded-full border border-[rgba(87,69,127,0.14)] bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-plum-deep)] transition-opacity hover:opacity-80 sm:inline-flex"
-            >
-              Instagram
-            </Link>
+            <span className="hidden rounded-full border border-[rgba(87,69,127,0.14)] bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-muted)] sm:inline-flex">
+              Instagram Soon
+            </span>
             <Link
               href={`mailto:${contactDetails.email}`}
               className="hidden rounded-full border border-[rgba(87,69,127,0.14)] bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-plum-deep)] transition-opacity hover:opacity-80 sm:inline-flex"

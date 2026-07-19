@@ -26,9 +26,7 @@ export function Footer() {
             WhatsApp
           </Link>
           <Link href={`mailto:${contactDetails.email}`}>{contactDetails.email}</Link>
-          <Link href={contactDetails.instagramLink}>
-            {contactDetails.instagram}
-          </Link>
+          <span>{contactDetails.instagram}</span>
           <Link href="/privacy-policy">Privacy Policy</Link>
           </div>
         </div>
