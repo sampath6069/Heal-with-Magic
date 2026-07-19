@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "Healing Sessions and 21-Day Programs",
   description:
     "Heal with Magic offers gentle healing sessions, 21-day programs, WhatsApp support, and soulful guidance by Shamitha Venkat.",
 };
@@ -22,6 +22,59 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
+
+        <section className="section-shell">
+          <div className="mb-8 max-w-3xl space-y-3">
+            <p className="eyebrow">Start Here</p>
+            <h2 className="font-display text-4xl text-[var(--color-plum-deep)] sm:text-5xl">
+              If you are interested, this is the simplest way to move forward without confusion.
+            </h2>
+            <p className="text-lg leading-8 text-[var(--color-muted)]">
+              Most people need one of three things first: a free session, a quick answer on WhatsApp, or a direct program choice.
+            </p>
+          </div>
+          <div className="grid gap-5 lg:grid-cols-3">
+            {[
+              {
+                title: "Book a free session",
+                text: "Best if you want to explain your situation first and get guidance before choosing a program.",
+                href: contactDetails.bookingLink,
+                label: "Start Free",
+                primary: true,
+              },
+              {
+                title: "Ask on WhatsApp",
+                text: "Best if you have one or two questions and want a direct reply before making a decision.",
+                href: contactDetails.whatsappLink,
+                label: "Message Now",
+                external: true,
+              },
+              {
+                title: "Go straight to programs",
+                text: "Best if you already know what you need and want to compare the available options and pricing.",
+                href: "/programs",
+                label: "See Programs",
+              },
+            ].map((item) => (
+              <article key={item.title} className="glass-card rounded-[2rem] p-7">
+                <p className="eyebrow">{item.title}</p>
+                <p className="mt-4 font-display text-3xl text-[var(--color-plum-deep)]">
+                  {item.text}
+                </p>
+                <div className="mt-6">
+                  <Link
+                    href={item.href}
+                    className={item.primary ? "button-primary" : "button-secondary"}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noreferrer" : undefined}
+                  >
+                    {item.label}
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <section className="section-shell">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
@@ -243,6 +296,30 @@ export default function Home() {
                   </p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-shell pt-0">
+          <div className="glass-card rounded-[2.6rem] px-6 py-8 sm:px-8 lg:px-12 lg:py-10">
+            <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div className="space-y-3">
+                <p className="eyebrow">Ready To Begin</p>
+                <h2 className="font-display text-4xl text-[var(--color-plum-deep)] sm:text-5xl">
+                  Start with the easiest next step today.
+                </h2>
+                <p className="text-lg leading-8 text-[var(--color-muted)]">
+                  If you are still deciding, choose the free session. If you are already clear, choose your program and secure your place.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+                <Link href={contactDetails.bookingLink} className="button-primary">
+                  Book a Free Session
+                </Link>
+                <Link href="/programs" className="button-secondary">
+                  View Programs
+                </Link>
+              </div>
             </div>
           </div>
         </section>

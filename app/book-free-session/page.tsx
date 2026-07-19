@@ -14,7 +14,7 @@ export default function BookFreeSessionPage() {
     <PageShell
       eyebrow="Book a Free Session"
       title="Book your free session by filling in your details below."
-      description="This page is designed to collect your enquiry details first. Once you submit them, the team receives your information by email and then WhatsApp opens with the same details already prepared."
+      description="This page is designed to collect your enquiry details first. Once you submit them, the team receives your information by email and then WhatsApp opens with the same details already prepared. No payment is required for this step."
     >
       <section className="section-shell pt-6">
         <div className="grid gap-6">

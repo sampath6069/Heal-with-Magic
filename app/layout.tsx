@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
+import { contactDetails } from "@/lib/site-data";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
@@ -26,6 +27,9 @@ export const metadata: Metadata = {
   },
   description:
     "Heal with Magic by Shamitha Venkat offers gentle healing sessions, 21-day programs, WhatsApp support, and heart-led guidance for emotional balance and transformation.",
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "Heal with Magic",
     "Shamitha Venkat",
@@ -62,9 +66,39 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        name: "Heal with Magic",
+        url: siteUrl,
+      },
+      {
+        "@type": "Person",
+        name: "Shamitha Venkat",
+        url: siteUrl,
+        email: contactDetails.email,
+        sameAs: [contactDetails.instagramLink],
+      },
+      {
+        "@type": "Organization",
+        name: "Heal with Magic",
+        url: siteUrl,
+        email: contactDetails.email,
+        telephone: contactDetails.phone,
+        sameAs: [contactDetails.instagramLink],
+      },
+    ],
+  };
+
   return (
     <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         {children}
         <Analytics />
       </body>

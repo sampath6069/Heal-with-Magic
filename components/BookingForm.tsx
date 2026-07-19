@@ -165,12 +165,12 @@ export function BookingForm() {
             className="w-full rounded-[1.25rem] border border-white/70 bg-white/85 px-4 py-3 text-base text-[var(--color-plum)] outline-none transition focus:border-[var(--color-gold)]"
           >
             <option value="">Select one</option>
-            <option>Emotional healing</option>
-            <option>Relationship healing</option>
-            <option>Money healing</option>
-            <option>Health and energy support</option>
-            <option>Career clarity</option>
-            <option>One-to-one healing session</option>
+            <option>Free healing guidance session</option>
+            <option>Career and money group healing</option>
+            <option>Health and relationships group healing</option>
+            <option>Chakra healing</option>
+            <option>One-to-one healing</option>
+            <option>Emotional healing support</option>
             <option>Not sure yet</option>
           </select>
         </div>
@@ -217,14 +217,15 @@ export function BookingForm() {
       </div>
 
       <div className="rounded-[1.4rem] border border-[var(--color-blush)]/70 bg-[var(--color-ivory)]/80 px-5 py-4 text-sm leading-7 text-[var(--color-muted)]">
-        When you continue, your details are sent to the team first and then
-        WhatsApp opens with the same information already filled in. That helps
-        you get a faster and more personal response.
+        This is a free enquiry step and takes less than one minute. When you continue,
+        your details are sent to the team first and then WhatsApp opens with the same
+        information already filled in, so you can get a faster and more personal response.
       </div>
 
       {isSuccessRedirecting ? (
         <div className="rounded-[1.25rem] border border-[rgba(141,106,53,0.18)] bg-[rgba(255,252,245,0.96)] px-5 py-4 text-sm leading-7 text-[var(--color-plum-deep)]">
-          Your details were sent successfully. Opening WhatsApp now...
+          Your details were sent successfully. Opening WhatsApp now. If WhatsApp does not open,
+          please use the WhatsApp button in the header after this step.
         </div>
       ) : null}
 
@@ -243,7 +244,7 @@ export function BookingForm() {
           ? "Opening WhatsApp..."
           : isSubmitting
             ? "Sending your details..."
-            : "Send Details and Continue to WhatsApp"}
+            : "Send My Enquiry and Continue to WhatsApp"}
       </button>
     </form>
   );
