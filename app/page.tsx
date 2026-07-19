@@ -341,7 +341,7 @@ export default function Home() {
                 <Link href={contactDetails.whatsappLink} target="_blank" rel="noreferrer">
                   WhatsApp: {contactDetails.phone}
                 </Link>
-                <Link href={contactDetails.instagramLink} target="_blank" rel="noreferrer">
+                <Link href={contactDetails.instagramLink}>
                   {contactDetails.instagram}
                 </Link>
               </div>

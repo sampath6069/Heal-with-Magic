@@ -39,7 +39,7 @@ export default function ContactPage() {
               </p>
               <p>
                 Instagram:{" "}
-                <Link href={contactDetails.instagramLink} target="_blank" rel="noreferrer">
+                <Link href={contactDetails.instagramLink}>
                   {contactDetails.instagram}
                 </Link>
               </p>
