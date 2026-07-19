@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { contactDetails } from "@/lib/site-data";
 
 export function Hero() {
   return (
@@ -39,7 +40,12 @@ export function Hero() {
               ))}
             </div>
             <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:gap-4">
-              <Link href="/book-free-session" className="button-primary w-full sm:w-auto">
+              <Link
+                href={contactDetails.bookingLink}
+                className="button-primary w-full sm:w-auto"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Book a Free Session
               </Link>
               <Link href="/programs" className="button-secondary w-full sm:w-auto">

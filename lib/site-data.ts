@@ -36,10 +36,11 @@ export const contactDetails = {
   email: "magical.universe.222@gmail.com",
   phone: "9686525789",
   instagram: "@healwithmagic",
-  bookingLink: "/book-free-session",
   whatsappNumber: "919686525789",
   whatsappLink: "https://wa.me/919686525789",
   instagramLink: "https://www.instagram.com/healwithmagic?igsh=MTF4eHVibG0xODh2bA==",
+  bookingLink:
+    "https://wa.me/919686525789?text=Hello%20Shamitha%2C%20I%20would%20like%20to%20book%20a%20free%20session.",
 } as const;
 
 export const programs = [
@@ -156,7 +157,7 @@ export const faqs = [
   {
     question: "What happens after I book a free session?",
     answer:
-      "You fill in your details first, your enquiry reaches the team by email, and then WhatsApp opens with your message prepared. From there, you can receive guidance on the best next step for your situation.",
+      "When you click Book a Free Session, WhatsApp opens directly so you can chat with Shamitha and continue the conversation personally from there.",
   },
   {
     question: "What happens after I pay for a program?",
@@ -166,7 +167,7 @@ export const faqs = [
   {
     question: "How do I know which program is right for me?",
     answer:
-      "If you are unsure, start with the free session. That makes it easy to explain what you are going through and receive guidance before choosing a program.",
+      "If you are unsure, start with the free session on WhatsApp. That makes it easy to explain what you are going through and receive guidance before choosing a program.",
   },
   {
     question: "Is one-to-one healing more private?",
@@ -182,19 +183,19 @@ export const faqs = [
 
 export const bookingSteps = [
   {
-    title: "Share your details",
+    title: "Open WhatsApp",
     description:
-      "Fill in your name, contact number, and a few short details about what you want support with.",
+      "Click the free-session button and WhatsApp opens directly with your booking message already prepared.",
   },
   {
-    title: "Continue on WhatsApp",
+    title: "Start the conversation",
     description:
-      "After that, WhatsApp opens with your information already prepared in a message for the team.",
+      "Chat with Shamitha personally, share what you need help with, and ask any first questions you may have.",
   },
   {
     title: "Receive your next step",
     description:
-      "The admin team can respond faster, ask any follow-up questions, and guide you toward the right session or healing path.",
+      "You can then receive guidance toward the right free session, program, or healing path.",
   },
 ] as const;
 

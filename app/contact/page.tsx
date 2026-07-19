@@ -18,7 +18,7 @@ export default function ContactPage() {
     <PageShell
       eyebrow="Contact"
       title="Use this page for direct contact, paid program joining, or general questions."
-      description="If you want to book a free session, use the dedicated booking form first. This page is best for direct contact, joining a paid program, or asking questions before you decide."
+      description="If you want to book a free session, use WhatsApp directly to chat with Shamitha. This page is best for direct contact, joining a paid program, or asking questions before you decide."
     >
       <section className="section-shell pt-6">
         <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
@@ -47,7 +47,7 @@ export default function ContactPage() {
             <p className="mt-6 text-base leading-8 text-[var(--color-muted)]">
               Use this page if you want to send a direct enquiry, ask a question,
               contact the team on WhatsApp, or join a paid program. If you want
-              a free session first, please use the dedicated booking form.
+              a free session first, please use WhatsApp directly.
             </p>
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
               {[
@@ -64,7 +64,12 @@ export default function ContactPage() {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link href={contactDetails.bookingLink} className="button-primary">
+              <Link
+                href={contactDetails.bookingLink}
+                className="button-primary"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Book a Free Session
               </Link>
               <Link href={contactDetails.whatsappLink} className="button-secondary" target="_blank" rel="noreferrer">
