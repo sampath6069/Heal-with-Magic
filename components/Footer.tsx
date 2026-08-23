@@ -91,6 +91,14 @@ export function Footer() {
           </div>
         </div>
       </div>
+      <div className="mobile-action-bar md:hidden">
+        <Link href={`tel:${contactDetails.phone.replace(/\s+/g, "")}`} className="button-secondary">
+          Call
+        </Link>
+        <Link href={contactDetails.whatsappLink} target="_blank" rel="noreferrer" className="button-whatsapp">
+          WhatsApp
+        </Link>
+      </div>
     </footer>
   );
 }

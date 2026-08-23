@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { QuickLeadForm } from "@/components/QuickLeadForm";
 import { contactDetails, serviceHighlights, showcaseImages, siteData, stats } from "@/lib/site-data";
 
 export function Hero() {
@@ -37,11 +38,11 @@ export function Hero() {
       />
 
       <div className="section-shell relative pb-10 pt-12 lg:pt-16">
-        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div className="max-w-3xl space-y-7">
             <p className="eyebrow">{siteData.baseLocation}</p>
             <h1 className="font-display text-5xl leading-[0.95] text-[var(--color-ink)] sm:text-6xl lg:text-7xl">
-              Interiors planned for the way you live and work.
+              Interior designers in Guntur for homes, offices and restaurants.
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-[var(--color-copy)]">
               {siteData.companyName} designs and executes homes, offices, restaurants,
@@ -86,6 +87,8 @@ export function Hero() {
           </div>
 
           <div className="grid gap-5 lg:justify-end">
+            <QuickLeadForm context="an interior project in Guntur or Hyderabad" />
+
             <div
               className="image-overlay hero-feature-card min-h-[24rem] overflow-hidden rounded-[2.2rem] border border-white/12 shadow-[0_32px_80px_rgba(0,0,0,0.28)]"
               style={{

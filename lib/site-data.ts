@@ -103,9 +103,71 @@ export const serviceHighlights = [
 
 export const stats = [
   { value: "10+", label: "Years of design experience" },
-  { value: "8+", label: "Years in project coordination" },
-  { value: "4", label: "Main towns served" },
-  { value: "2", label: "Residential and commercial work" },
+  { value: "5+", label: "Featured commercial projects" },
+  { value: "4", label: "Key towns served" },
+  { value: "2", label: "Home and business interiors" },
+] as const;
+
+export const buyerProof = [
+  "Direct discussion with the design and execution team",
+  "Site visit and requirement check before final quotation",
+  "Material, layout, furniture, and lighting guidance in one place",
+  "Work experience across homes, restaurants, hotels, bars, and function halls",
+] as const;
+
+export const budgetGuidance = [
+  {
+    title: "Room or furniture work",
+    range: "Usually discussed after measurements",
+    note: "Best for wardrobes, TV units, beds, counters, and small upgrades.",
+  },
+  {
+    title: "2BHK / 3BHK interiors",
+    range: "Budget depends on scope and material selection",
+    note: "Kitchen, wardrobes, TV unit, bedroom furniture, ceiling, and lighting can be planned in phases.",
+  },
+  {
+    title: "Commercial spaces",
+    range: "Quoted after site visit",
+    note: "Restaurants, hotels, offices, bars, and halls need layout, finish, signage, lighting, and execution planning.",
+  },
+] as const;
+
+export const simpleProcess = [
+  {
+    step: "01",
+    title: "Enquiry and requirement call",
+    description: "We understand your space type, city, rough budget, timeline, and main requirement.",
+  },
+  {
+    step: "02",
+    title: "Site visit and design direction",
+    description: "The team checks measurements, usage, layout options, materials, and practical execution points.",
+  },
+  {
+    step: "03",
+    title: "Quotation and execution support",
+    description: "Once scope is clear, we share the next steps and coordinate design decisions with site work.",
+  },
+] as const;
+
+export const faqs = [
+  {
+    question: "Do you handle both design and execution?",
+    answer: "Yes. We support design planning, material guidance, furniture work, and site coordination based on the project scope.",
+  },
+  {
+    question: "Do you work outside Guntur?",
+    answer: "Yes. We take projects across Andhra Pradesh and Hyderabad, depending on the requirement and site schedule.",
+  },
+  {
+    question: "Can you give a budget before a site visit?",
+    answer: "We can share a rough direction first. Final costing needs measurements, material choices, and exact work scope.",
+  },
+  {
+    question: "What happens in the free consultation?",
+    answer: "We discuss your requirement, city, space type, budget comfort, timeline, and whether a site visit is the right next step.",
+  },
 ] as const;
 
 export const marketCoverage = [

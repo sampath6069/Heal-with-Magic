@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import Script from "next/script";
 import { LeadTracking } from "@/components/LeadTracking";
-import { siteData } from "@/lib/site-data";
+import { contactDetails, siteData } from "@/lib/site-data";
 import "./globals.css";
 
 const siteUrl =
@@ -72,6 +72,26 @@ export default function RootLayout({
             </Script>
           </>
         )}
+        <Script id="local-business-schema" type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: siteData.companyName,
+            description: siteData.description,
+            url: siteUrl,
+            telephone: contactDetails.phone,
+            email: contactDetails.email,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "7th Lane, Sriram Nagar",
+              addressLocality: "Guntur",
+              addressRegion: "Andhra Pradesh",
+              addressCountry: "IN",
+            },
+            areaServed: ["Guntur", "Narasaraopet", "Vinukonda", "Sattenapalli", "Hyderabad", "Andhra Pradesh"],
+            priceRange: "Project based",
+          })}
+        </Script>
         <LeadTracking />
         {children}
       </body>
