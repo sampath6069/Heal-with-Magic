@@ -18,7 +18,8 @@ export async function POST(request: Request) {
   }
 
   const leadToEmail = process.env.LEAD_TO_EMAIL ?? contactDetails.email;
-  const leadFromEmail = process.env.LEAD_FROM_EMAIL ?? "Design Space and Infra <onboarding@resend.dev>";
+  const resendEmailDomain = process.env.RESEND_EMAIL_DOMAIN ?? "designspaceandinfra.com";
+  const leadFromEmail = process.env.LEAD_FROM_EMAIL ?? `Design Space and Infra <website@${resendEmailDomain}>`;
   const resendApiKey = process.env.RESEND_API_KEY;
   const lines = [
     "New website enquiry",
