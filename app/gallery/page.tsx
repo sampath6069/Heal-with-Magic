@@ -63,7 +63,7 @@ export default function GalleryPage() {
           <p className="eyebrow text-[var(--color-gold)]">Your Project</p>
           <h2 className="mt-3 font-display text-4xl text-[var(--color-card-ink)] sm:text-5xl">Have a space in mind?</h2>
           <p className="mt-4 max-w-2xl text-base leading-8 text-[rgba(33,27,22,0.78)]">Share your location and requirement on WhatsApp. We will guide you on the right next step for your home or commercial project.</p>
-          <Link href="/book-free-session" className="button-primary mt-7">Book a Free Consultation</Link>
+          <Link href="/book-free-session" className="button-primary mt-7">Book a free consultation</Link>
         </div>
       </section>
     </PageShell>

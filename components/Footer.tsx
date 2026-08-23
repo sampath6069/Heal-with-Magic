@@ -19,10 +19,10 @@ export function Footer() {
           </div>
           <div className="flex flex-wrap gap-3">
             <Link href={contactDetails.whatsappLink} className="button-whatsapp" target="_blank" rel="noreferrer">
-              WhatsApp Us
+              WhatsApp us
             </Link>
             <Link href="/book-free-session" className="button-secondary">
-              Book a Free Consultation
+              Book a free consultation
             </Link>
           </div>
         </div>
@@ -52,13 +52,13 @@ export function Footer() {
               </Link>
             </div>
             <div className="space-y-1">
-              <p className="text-[0.68rem] uppercase tracking-[0.18em] text-[var(--color-muted)]">Call</p>
+              <p className="text-[0.68rem] uppercase tracking-[0.18em] text-[var(--color-muted)]">{contactDetails.phoneLabel}</p>
               <Link href={`tel:${contactDetails.phone.replace(/\s+/g, "")}`} className="block">
                 {contactDetails.phone}
               </Link>
             </div>
             <div className="space-y-1">
-              <p className="text-[0.68rem] uppercase tracking-[0.18em] text-[var(--color-muted)]">WhatsApp</p>
+              <p className="text-[0.68rem] uppercase tracking-[0.18em] text-[var(--color-muted)]">{contactDetails.whatsappLabel}</p>
               <Link href={contactDetails.whatsappLink} target="_blank" rel="noreferrer" className="block">
                 {contactDetails.whatsapp}
               </Link>

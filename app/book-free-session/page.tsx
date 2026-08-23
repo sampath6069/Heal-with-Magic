@@ -5,7 +5,7 @@ import { PageShell } from "@/components/PageShell";
 import { contactDetails, siteData } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Book a Free Consultation",
+  title: "Book a free consultation",
   description: `Book a free consultation with ${siteData.companyName} and continue your enquiry on WhatsApp with your details prefilled.`,
 };
 

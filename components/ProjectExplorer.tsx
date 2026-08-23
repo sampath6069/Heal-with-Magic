@@ -23,7 +23,7 @@ export function ProjectExplorer({ expanded = false }: ProjectExplorerProps) {
         </div>
         {!expanded && (
           <Link href="/projects" className="button-tertiary">
-            View All Projects
+            View all projects
           </Link>
         )}
       </div>
@@ -77,7 +77,7 @@ export function ProjectExplorer({ expanded = false }: ProjectExplorerProps) {
 
               <div className="flex flex-wrap gap-3">
                 <Link href={contactDetails.whatsappLink} target="_blank" rel="noreferrer" className="button-whatsapp">
-                  Discuss Similar Project
+                  Discuss similar project
                 </Link>
                 {expanded && (
                   <Link href={project.mapsLink} target="_blank" rel="noreferrer" className="button-secondary">

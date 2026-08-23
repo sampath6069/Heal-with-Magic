@@ -6,6 +6,11 @@ import { contactDetails, siteData } from "@/lib/site-data";
 type QuickLeadFormProps = {
   context?: string;
   theme?: "dark" | "light";
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  buttonLabel?: string;
+  reassurance?: string;
 };
 
 type QuickLeadFormState = {
@@ -24,8 +29,17 @@ const initialState: QuickLeadFormState = {
 
 const spaceTypes = ["Home", "Office", "Restaurant", "Retail", "Hotel", "Other"];
 
-export function QuickLeadForm({ context = "interior project", theme = "dark" }: QuickLeadFormProps) {
+export function QuickLeadForm({
+  context = "interior project",
+  theme = "dark",
+  eyebrow = "Free consultation",
+  title = "Get a call back from our team.",
+  description = "Share four details. We will understand the requirement and suggest the next step.",
+  buttonLabel = "Send enquiry",
+  reassurance = "No obligation. First discussion is free.",
+}: QuickLeadFormProps) {
   const [form, setForm] = useState(initialState);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const isValid = useMemo(() => {
     return Boolean(form.name.trim() && form.phone.trim() && form.spaceType && form.city.trim());
@@ -35,7 +49,7 @@ export function QuickLeadForm({ context = "interior project", theme = "dark" }: 
     setForm((current) => ({ ...current, [key]: value }));
   }
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (!isValid) {
@@ -50,6 +64,25 @@ export function QuickLeadForm({ context = "interior project", theme = "dark" }: 
       `Space type: ${form.spaceType}`,
       `City / area: ${form.city}`,
     ].join("\n");
+
+    setStatus("sending");
+
+    try {
+      await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...form,
+          context,
+          source: window.location.pathname,
+        }),
+      });
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
 
     window.location.href = `https://wa.me/${contactDetails.whatsappNumber}?text=${encodeURIComponent(message)}`;
   }
@@ -68,12 +101,12 @@ export function QuickLeadForm({ context = "interior project", theme = "dark" }: 
       className={theme === "light" ? "lead-form-light" : "lead-form-dark"}
     >
       <div>
-        <p className={theme === "light" ? "eyebrow text-[#8a693c]" : "eyebrow"}>Free Consultation</p>
+        <p className={theme === "light" ? "eyebrow text-[#8a693c]" : "eyebrow"}>{eyebrow}</p>
         <h2 className={theme === "light" ? "mt-3 font-display text-3xl text-[#211b16]" : "mt-3 font-display text-3xl text-white"}>
-          Get a call back from our team.
+          {title}
         </h2>
         <p className={theme === "light" ? "mt-3 text-sm leading-6 text-[#5f5145]" : "mt-3 text-sm leading-6 text-white/72"}>
-          Share four details. We will understand the requirement and suggest the next step.
+          {description}
         </p>
       </div>
 
@@ -140,11 +173,11 @@ export function QuickLeadForm({ context = "interior project", theme = "dark" }: 
       </div>
 
       <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <button type="submit" className="button-whatsapp border-0" disabled={!isValid}>
-          Send on WhatsApp
+        <button type="submit" className="button-whatsapp border-0" disabled={!isValid || status === "sending"}>
+          {status === "sending" ? "Sending..." : buttonLabel}
         </button>
         <span className={theme === "light" ? "text-sm text-[#625346]" : "text-sm text-white/66"}>
-          No obligation. First discussion is free.
+          {status === "sent" ? "Saved. Opening WhatsApp..." : status === "error" ? "Opening WhatsApp now." : reassurance}
         </span>
       </div>
     </form>

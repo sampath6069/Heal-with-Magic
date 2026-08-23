@@ -9,7 +9,6 @@ import { QuickLeadForm } from "@/components/QuickLeadForm";
 import { ServiceExplorer } from "@/components/ServiceExplorer";
 import {
   budgetGuidance,
-  buyerProof,
   contactDetails,
   faqs,
   founders,
@@ -43,13 +42,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="mt-5 grid gap-3 md:grid-cols-2">
-            {buyerProof.map((item) => (
-              <div key={item} className="rounded-[1rem] border border-white/10 bg-white/5 px-5 py-4 text-sm leading-6 text-[var(--color-copy)]">
-                {item}
-              </div>
-            ))}
-          </div>
         </section>
 
         <section className="section-shell reveal-on-scroll">
@@ -61,7 +53,7 @@ export default function Home() {
               </h2>
             </div>
             <Link href="/about" className="button-tertiary">
-              About Our Team
+              About our team
             </Link>
           </div>
           <div className="grid gap-5 sm:grid-cols-2">
@@ -102,7 +94,7 @@ export default function Home() {
 
         <section className="section-shell reveal-on-scroll">
           <div className="mb-7 max-w-3xl">
-            <p className="eyebrow">Budget Guidance</p>
+            <p className="eyebrow">Budget guidance</p>
             <h2 className="mt-3 font-display text-4xl text-[var(--color-ink)] sm:text-5xl">
               We discuss cost after scope is clear.
             </h2>
@@ -133,12 +125,20 @@ export default function Home() {
                   We will understand your requirement, location, space type, budget comfort, and whether a site visit is needed.
                 </p>
                 <div className="mt-6 grid gap-3 text-sm leading-6 text-[rgba(33,27,22,0.78)]">
-                  <p>Call: {contactDetails.phone}</p>
-                  <p>WhatsApp: {contactDetails.whatsapp}</p>
+                  <p>{contactDetails.phoneLabel}: {contactDetails.phone}</p>
+                  <p>{contactDetails.whatsappLabel}: {contactDetails.whatsapp}</p>
                   <p>Email: {contactDetails.email}</p>
                 </div>
               </div>
-              <QuickLeadForm context="a free consultation" theme="light" />
+              <QuickLeadForm
+                context="a free consultation"
+                theme="light"
+                eyebrow="Still deciding?"
+                title="Send the details and we will call you."
+                description="Share the basic project details. We will review them and guide you on budget, site visit, and next steps."
+                buttonLabel="Send details"
+                reassurance="Good for early-stage enquiries too."
+              />
             </div>
           </div>
         </section>

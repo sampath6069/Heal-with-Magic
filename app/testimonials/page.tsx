@@ -21,7 +21,7 @@ export default function TestimonialsPage() {
           <h2 className="font-display text-4xl text-[var(--color-ink)]">See our selected work or start a conversation.</h2>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="/projects" className="button-secondary">View Projects</Link>
-            <Link href={contactDetails.whatsappLink} className="button-whatsapp" target="_blank" rel="noreferrer">WhatsApp Us</Link>
+            <Link href={contactDetails.whatsappLink} className="button-whatsapp" target="_blank" rel="noreferrer">WhatsApp us</Link>
           </div>
         </div>
       </section>

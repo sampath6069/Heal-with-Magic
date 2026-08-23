@@ -72,7 +72,7 @@ export default function ContactPage() {
               </div>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link href={contactDetails.whatsappLink} className="button-primary" target="_blank" rel="noreferrer">
-                  WhatsApp Us
+                  WhatsApp us
                 </Link>
                 <Link href={contactDetails.mapsLink} className="button-tertiary" target="_blank" rel="noreferrer">
                   Open Map

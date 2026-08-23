@@ -27,13 +27,13 @@ export function Header() {
               href={`tel:${contactDetails.phone.replace(/\s+/g, "")}`}
               className="transition-colors hover:text-[var(--color-gold-bright)]"
             >
-              Call: {contactDetails.phone}
+              {contactDetails.phoneLabel}: {contactDetails.phone}
             </Link>
             <Link
               href={`mailto:${contactDetails.email}`}
               className="transition-colors hover:text-[var(--color-gold-bright)]"
             >
-              Email: {contactDetails.email}
+              {contactDetails.email}
             </Link>
           </div>
         </div>
@@ -79,7 +79,7 @@ export function Header() {
               target="_blank"
               rel="noreferrer"
             >
-              WhatsApp Us
+              WhatsApp us
             </Link>
             <Link href="/book-free-session" className="button-primary cta-booking min-w-[162px]">
               {siteData.ctaPrimary}
@@ -99,7 +99,7 @@ export function Header() {
             </nav>
             <div className="mt-5 grid gap-3">
               <Link href={contactDetails.whatsappLink} className="button-whatsapp" target="_blank" rel="noreferrer">
-                WhatsApp Us
+                WhatsApp us
               </Link>
               <Link href="/book-free-session" onClick={() => setIsMenuOpen(false)} className="button-secondary">
                 {siteData.ctaPrimary}

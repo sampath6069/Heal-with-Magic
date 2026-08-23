@@ -6,8 +6,8 @@ export const siteData = {
     "Design Space and Infra plans and executes residential and commercial interiors across Andhra Pradesh and Hyderabad.",
   baseLocation: "Guntur, Andhra Pradesh",
   serviceArea: "Andhra Pradesh and Hyderabad",
-  ctaPrimary: "Book a Free Consultation",
-  ctaSecondary: "Get Quote",
+  ctaPrimary: "Book a free consultation",
+  ctaSecondary: "Get quote",
   primaryGoal: "Get WhatsApp leads and consultation bookings",
 } as const;
 
@@ -103,9 +103,9 @@ export const serviceHighlights = [
 
 export const stats = [
   { value: "10+", label: "Years of design experience" },
-  { value: "5+", label: "Featured commercial projects" },
-  { value: "4", label: "Key towns served" },
-  { value: "2", label: "Home and business interiors" },
+  { value: "5", label: "Featured projects shown" },
+  { value: "4+", label: "Towns served around Guntur" },
+  { value: "AP + HYD", label: "Service area" },
 ] as const;
 
 export const buyerProof = [
@@ -118,17 +118,17 @@ export const buyerProof = [
 export const budgetGuidance = [
   {
     title: "Room or furniture work",
-    range: "Usually discussed after measurements",
-    note: "Best for wardrobes, TV units, beds, counters, and small upgrades.",
+    range: "Often starts from Rs. 75,000 based on scope",
+    note: "Best for wardrobes, TV units, beds, counters, storage, and small upgrades. Final cost depends on size, material, hardware, and finish.",
   },
   {
     title: "2BHK / 3BHK interiors",
-    range: "Budget depends on scope and material selection",
-    note: "Kitchen, wardrobes, TV unit, bedroom furniture, ceiling, and lighting can be planned in phases.",
+    range: "Typical planning starts from Rs. 4-8 lakh",
+    note: "Kitchen, wardrobes, TV unit, bedroom furniture, ceiling, and lighting can be planned in phases based on budget.",
   },
   {
     title: "Commercial spaces",
-    range: "Quoted after site visit",
+    range: "Usually starts from Rs. 5 lakh for focused work",
     note: "Restaurants, hotels, offices, bars, and halls need layout, finish, signage, lighting, and execution planning.",
   },
 ] as const;
@@ -181,22 +181,22 @@ export const projectSectors = [
   {
     name: "Luxury homes",
     detail: "Comfortable homes for everyday living",
-    image: "/indian-living-room.png",
+    image: "/indian-living-room.webp",
   },
   {
     name: "Restaurants",
     detail: "Dining spaces that welcome guests",
-    image: "/indian-commercial-space.png",
+    image: "/indian-commercial-space.webp",
   },
   {
     name: "Bars",
     detail: "Seating, lighting, and service areas",
-    image: "/indian-bar-lounge.png",
+    image: "/indian-bar-lounge.webp",
   },
   {
     name: "Function halls",
     detail: "Large venues planned for functions",
-    image: "/indian-function-hall.png",
+    image: "/indian-function-hall.webp",
   },
 ] as const;
 
@@ -204,7 +204,7 @@ export const showcaseImages = [
   {
     title: "Jupalli Spices Arrival View",
     tag: "Hospitality Project",
-    url: "/jupalli-spices-featured-enhanced.png",
+    url: "/jupalli-spices-featured-enhanced.webp",
   },
   {
     title: "Night Facade Presence",
@@ -219,17 +219,17 @@ export const showcaseImages = [
   {
     title: "Indian Home Living",
     tag: "Residential",
-    url: "/indian-living-room.png",
+    url: "/indian-living-room.webp",
   },
   {
     title: "Practical Indian Kitchen",
     tag: "Modular Kitchen",
-    url: "/indian-modular-kitchen.png",
+    url: "/indian-modular-kitchen.webp",
   },
   {
     title: "Custom Furniture Focus",
     tag: "Craft",
-    url: "/indian-custom-furniture.png",
+    url: "/indian-custom-furniture.webp",
   },
 ] as const;
 
@@ -280,15 +280,15 @@ export const projectCaseStudies = [
     mapsLink: "https://www.google.com/maps/search/?api=1&query=Hotel+7+Thummalacheruvu+Piduguralla",
     images: [
       {
-        src: "/hotel-7-piduguralla-featured-enhanced.png",
+        src: "/hotel-7-piduguralla-featured-enhanced.webp",
         alt: "Hotel 7 Piduguralla exterior with illuminated entrance at dusk",
       },
       {
-        src: "/hotel-7-interior-enhanced.png",
+        src: "/hotel-7-interior-enhanced.webp",
         alt: "Hotel 7 refined restaurant interior with booth seating and warm lighting",
       },
       {
-        src: "/hotel-7-hospitality-frontage-enhanced.png",
+        src: "/hotel-7-hospitality-frontage-enhanced.webp",
         alt: "Hotel 7 commercial frontage at dusk",
       },
     ],
@@ -316,7 +316,7 @@ export const projectCaseStudies = [
     mapsLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Jupallispices+Jupalli+Centre+Rd+Narasaraopet",
     images: [
       {
-        src: "/jupalli-spices-featured-enhanced.png",
+        src: "/jupalli-spices-featured-enhanced.webp",
         alt: "Hotel Jupalli Spices enhanced front elevation at night",
       },
       {
@@ -352,7 +352,7 @@ export const projectCaseStudies = [
     mapsLink: "https://www.google.com/maps/search/?api=1&query=R+One+Punjabi+Dhaba+Kakani+Road+Guntur",
     images: [
       {
-        src: "/r-one-punjabi-dhaba-featured-enhanced.png",
+        src: "/r-one-punjabi-dhaba-featured-enhanced.webp",
         alt: "R One Punjabi Dhaba illuminated entrance at night",
       },
       {
@@ -384,7 +384,7 @@ export const projectCaseStudies = [
     mapsLink: "https://www.google.com/maps/search/?api=1&query=RK+Punjabi+Dhaba+Mahatma+Gandhi+Inner+Ring+Road+Guntur",
     images: [
       {
-        src: "/rk-punjabi-dhaba-featured-enhanced.png",
+        src: "/rk-punjabi-dhaba-featured-enhanced.webp",
         alt: "RK Punjabi Dhaba refined interior with illuminated mural arches",
       },
       {
@@ -423,15 +423,15 @@ export const projectCaseStudies = [
     mapsLink: "https://www.google.com/maps/search/?api=1&query=Karthikeya+Grand+Narasaraopet",
     images: [
       {
-        src: "/karthikeya-grand-featured-enhanced.png",
+        src: "/karthikeya-grand-featured-enhanced.webp",
         alt: "Karthikeya Grand hotel facade with black, white, and gold detailing",
       },
       {
-        src: "/karthikeya-grand-suite-enhanced.png",
+        src: "/karthikeya-grand-suite-enhanced.webp",
         alt: "Karthikeya Grand guest room with warm timber and upholstered bed detailing",
       },
       {
-        src: "/karthikeya-grand-bathroom-enhanced.png",
+        src: "/karthikeya-grand-bathroom-enhanced.webp",
         alt: "Karthikeya Grand bathroom with marble wall, timber vanity, and glass shower",
       },
     ],
@@ -525,10 +525,12 @@ export const aboutContent = {
 
 export const contactDetails = {
   phone: "+91 88863 88663",
+  phoneLabel: "Sales call",
   whatsapp: "+91 93948 68584",
+  whatsappLabel: "WhatsApp enquiry",
   whatsappNumber: "919394868584",
   whatsappLink: "https://wa.me/919394868584?text=Hello%20Design%20Space%20and%20Infra%2C%20I%20want%20to%20discuss%20my%20interior%20project.",
-  email: "sasaank.sasy@gmail.com",
+  email: "info@designspaceandinfra.com",
   address: "7th Lane, Sriram Nagar, Guntur, Andhra Pradesh, India",
   mapsLink: "https://www.google.com/maps?q=16.33749,80.43188",
   instagram: "Instagram coming soon",

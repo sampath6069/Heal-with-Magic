@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import { QuickLeadForm } from "@/components/QuickLeadForm";
-import { contactDetails, serviceHighlights, showcaseImages, siteData, stats } from "@/lib/site-data";
+import { buyerProof, contactDetails, serviceHighlights, showcaseImages, siteData } from "@/lib/site-data";
 
 export function Hero() {
   // Keep client project imagery in the portfolio, not in the studio's opening visual.
   const primaryImage = showcaseImages[3];
-  const secondaryImage = showcaseImages[5];
+  const secondaryImage = showcaseImages[4];
   const [pointer, setPointer] = useState({ x: 50, y: 50 });
 
   return (
@@ -51,10 +51,10 @@ export function Hero() {
 
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link href={contactDetails.whatsappLink} target="_blank" rel="noreferrer" className="button-whatsapp">
-                WhatsApp Us
+                WhatsApp us
               </Link>
               <Link href="/book-free-session" className="button-secondary">
-                Book a Free Consultation
+                Book a free consultation
               </Link>
             </div>
 
@@ -68,26 +68,21 @@ export function Hero() {
                 </span>
               ))}
             </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {stats.slice(0, 2).map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-[1.4rem] border border-white/10 bg-white/5 px-4 py-5 backdrop-blur"
-                >
-                  <p className="font-sans text-4xl font-black tracking-tight text-[var(--color-gold-bright)]">
-                    {stat.value}
-                  </p>
-                  <p className="mt-2 text-xs uppercase tracking-[0.16em] text-[var(--color-copy)]">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div className="grid gap-5 lg:justify-end">
-            <QuickLeadForm context="an interior project in Guntur or Hyderabad" />
+            <QuickLeadForm
+              context="an interior project in Guntur or Hyderabad"
+              description="Share your name, phone, space type, and city. We will review it first and then continue the discussion on WhatsApp."
+            />
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {buyerProof.map((item) => (
+                <div key={item} className="rounded-[1rem] border border-white/10 bg-black/20 px-4 py-3 text-sm leading-6 text-white/78 backdrop-blur">
+                  {item}
+                </div>
+              ))}
+            </div>
 
             <div
               className="image-overlay hero-feature-card min-h-[24rem] overflow-hidden rounded-[2.2rem] border border-white/12 shadow-[0_32px_80px_rgba(0,0,0,0.28)]"
@@ -105,13 +100,6 @@ export function Hero() {
                   {secondaryImage.title}
                 </p>
               </div>
-            </div>
-
-            <div className="glass-panel rounded-[2rem] p-6">
-              <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-gold-bright)]">Homes and businesses</p>
-              <p className="mt-3 text-lg leading-8 text-[var(--color-copy)]">
-                Design support for homes, restaurants, offices, and hospitality spaces across Andhra Pradesh and Hyderabad.
-              </p>
             </div>
           </div>
         </div>

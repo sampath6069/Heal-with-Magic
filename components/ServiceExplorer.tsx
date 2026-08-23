@@ -3,15 +3,15 @@ import Link from "next/link";
 import { services } from "@/lib/site-data";
 
 const serviceImages = [
-  "/indian-living-room.png",
-  "/indian-modular-kitchen.png",
-  "/indian-bedroom.png",
-  "/indian-office.png",
-  "/indian-renovation.png",
-  "/indian-custom-furniture.png",
-  "/indian-luxurious-furniture.png",
-  "/indian-commercial-space.png",
-  "/indian-home-elevation.png",
+  "/indian-living-room.webp",
+  "/indian-modular-kitchen.webp",
+  "/indian-bedroom.webp",
+  "/indian-office.webp",
+  "/indian-renovation.webp",
+  "/indian-custom-furniture.webp",
+  "/indian-luxurious-furniture.webp",
+  "/indian-commercial-space.webp",
+  "/indian-home-elevation.webp",
 ] as const;
 
 const featuredServices = services.map((service, index) => ({
@@ -36,7 +36,7 @@ export function ServiceExplorer({ showAllLink = true }: ServiceExplorerProps) {
         <div className="flex flex-wrap gap-3">
           {showAllLink && (
             <Link href="/services" className="button-tertiary">
-              All Services
+              All services
             </Link>
           )}
         </div>
