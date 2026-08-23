@@ -1,4 +1,7 @@
 import { ImageResponse } from "next/og";
+import { siteData } from "@/lib/site-data";
+
+export const dynamic = "force-static";
 
 export const size = {
   width: 1200,
@@ -16,8 +19,9 @@ export default function OpenGraphImage() {
           width: "100%",
           display: "flex",
           position: "relative",
-          backgroundColor: "#f6f1fb",
-          color: "#5f5698",
+          background:
+            "linear-gradient(135deg, #fcfaf6 0%, #f5efe5 45%, #efe5d6 100%)",
+          color: "#171411",
           fontFamily: "serif",
           overflow: "hidden",
         }}
@@ -27,93 +31,65 @@ export default function OpenGraphImage() {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(238,230,248,0.9) 100%)",
+              "radial-gradient(circle at 12% 18%, rgba(182,144,88,0.18), transparent 20%), radial-gradient(circle at 84% 22%, rgba(255,255,255,0.8), transparent 20%), linear-gradient(rgba(23,20,17,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(23,20,17,0.035) 1px, transparent 1px)",
+            backgroundSize: "auto, auto, 44px 44px, 44px 44px",
           }}
         />
 
         <div
           style={{
-            position: "absolute",
-            top: 46,
-            left: 54,
             display: "flex",
-            flexDirection: "column",
-            gap: 8,
-            letterSpacing: "0.28em",
-            fontSize: 24,
-            textTransform: "uppercase",
-            color: "#4f4b78",
-          }}
-        >
-          <div>Heal with Magic</div>
-          <div style={{ fontSize: 18, letterSpacing: "0.22em", opacity: 0.75 }}>
-            By Shamitha Venkat
-          </div>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
             width: "100%",
-            padding: "120px 70px 70px",
+            padding: "92px 68px 70px",
             gap: 40,
+            justifyContent: "space-between",
           }}
         >
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              width: 650,
-              gap: 20,
-              zIndex: 1,
+              width: 720,
+              gap: 18,
             }}
           >
+            <div
+              style={{
+                letterSpacing: "0.26em",
+                fontSize: 22,
+                textTransform: "uppercase",
+                color: "#b69058",
+              }}
+            >
+              Guntur, Andhra Pradesh
+            </div>
             <div
               style={{
                 fontSize: 84,
                 lineHeight: 1,
-                color: "#5f5698",
+                color: "#171411",
               }}
             >
-              Heal with Magic
+              {siteData.companyName}
             </div>
             <div
               style={{
-                fontSize: 34,
+                fontSize: 32,
                 lineHeight: 1.4,
-                color: "#66627f",
+                color: "#655a4d",
               }}
             >
-              Gentle healing, manifestation, and transformation for people
-              ready to release, align, and grow.
+              {siteData.tagline}
             </div>
             <div
               style={{
-              display: "flex",
-              gap: 18,
-              flexWrap: "wrap",
-              marginTop: 10,
-            }}
-          >
-              {["21-day programs", "One-to-one healing", "WhatsApp support"].map(
-                (item) => (
-                  <div
-                    key={item}
-                    style={{
-                      display: "flex",
-                      padding: "14px 24px",
-                      borderRadius: 999,
-                      background: "#5f5698",
-                      color: "white",
-                      fontSize: 22,
-                    }}
-                  >
-                    {item}
-                  </div>
-                ),
-              )}
+                fontSize: 28,
+                lineHeight: 1.4,
+                color: "#2b241d",
+                maxWidth: 700,
+              }}
+            >
+              Premium residential and commercial interiors across Andhra Pradesh and Hyderabad.
             </div>
           </div>
 
@@ -121,40 +97,26 @@ export default function OpenGraphImage() {
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              width: 320,
-              height: 320,
-              borderRadius: 999,
-              backgroundColor: "rgba(255,255,255,0.92)",
-              boxShadow: "0 30px 70px rgba(95,86,152,0.15)",
-              border: "8px solid rgba(255,255,255,0.72)",
-              position: "relative",
-              zIndex: 1,
+              justifyContent: "space-between",
+              width: 280,
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: 240,
-                height: 240,
-                borderRadius: 999,
-                backgroundColor: "#5f5698",
-                color: "#d6efe6",
-                fontSize: 38,
-                textAlign: "center",
-                lineHeight: 1.05,
-                padding: 30,
-              }}
-            >
-              Heal
-              <br />
-              with
-              <br />
-              Magic
-            </div>
+            {["Residential", "Commercial", "Turnkey"].map((item) => (
+              <div
+                key={item}
+                style={{
+                  display: "flex",
+                  padding: "24px 28px",
+                  borderRadius: 28,
+                  background: "rgba(255,255,255,0.72)",
+                  color: "#171411",
+                  border: "1px solid rgba(23,20,17,0.06)",
+                  fontSize: 28,
+                }}
+              >
+                {item}
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -16,15 +16,18 @@ export function PageShell({
     <>
       <Header />
       <main className="flex-1">
-        <section className="section-shell pb-6 pt-14 sm:pt-18">
-          <div className="glass-card max-w-4xl rounded-[2.4rem] p-8 sm:p-10">
-            <p className="eyebrow">{eyebrow}</p>
-            <h1 className="font-display text-5xl text-[var(--color-plum-deep)] sm:text-6xl">
-              {title}
-            </h1>
-            <p className="text-lg leading-8 text-[var(--color-muted)]">
-              {description}
-            </p>
+        <section className="relative overflow-hidden border-b border-white/6">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(196,154,95,0.2),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_40%)]" />
+          <div className="section-shell relative pb-10 pt-16 sm:pt-20">
+            <div className="max-w-4xl space-y-5">
+              <p className="eyebrow">{eyebrow}</p>
+              <h1 className="font-display text-5xl text-[var(--color-ink)] sm:text-6xl lg:text-7xl">
+                {title}
+              </h1>
+              <p className="max-w-3xl text-lg leading-8 text-[var(--color-copy)]">
+                {description}
+              </p>
+            </div>
           </div>
         </section>
         {children}

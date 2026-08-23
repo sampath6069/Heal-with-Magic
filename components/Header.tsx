@@ -1,99 +1,112 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { LogoMark } from "@/components/LogoMark";
-import { contactDetails } from "@/lib/site-data";
+import { contactDetails, siteData } from "@/lib/site-data";
 
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/programs", label: "Programs" },
+  { href: "/services", label: "Services" },
+  { href: "/projects", label: "Projects" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
-  const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="z-20 border-b border-[rgba(87,69,127,0.12)] bg-[rgba(250,246,252,0.82)] backdrop-blur-2xl">
-      <div className="mx-auto flex w-[min(1120px,calc(100%-2rem))] flex-col gap-4 py-4 sm:w-[min(1120px,calc(100%-3rem))] lg:flex-row lg:items-center lg:justify-between">
-        <Link href="/" className="self-start">
-          <LogoMark />
-        </Link>
-        <div className="flex flex-col gap-3 lg:items-end">
-          <div className="flex flex-wrap gap-2 rounded-full border border-white/70 bg-white/60 px-2 py-2 shadow-[0_16px_36px_rgba(96,74,123,0.08)]">
+    <header className="border-b border-[var(--color-line)] bg-[rgba(14,11,9,0.76)] backdrop-blur-xl">
+      <div className="border-b border-white/6">
+        <div className="mx-auto flex w-[min(1220px,calc(100%-2rem))] flex-wrap items-center justify-between gap-3 py-3 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-[rgba(255,248,236,0.9)] sm:w-[min(1220px,calc(100%-3rem))]">
+          <p>{siteData.baseLocation}</p>
+          <div className="flex flex-wrap items-center gap-4">
             <Link
-              href={contactDetails.bookingLink}
-              className="inline-flex min-w-[154px] items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition-opacity hover:opacity-90"
-              style={{
-                background: "linear-gradient(135deg, #cda060 0%, #b17a44 100%)",
-                color: "#fffaf8",
-                boxShadow: "0 10px 24px rgba(177,122,68,0.22)",
-                letterSpacing: "0.02em",
-              }}
+              href={`tel:${contactDetails.phone.replace(/\s+/g, "")}`}
+              className="transition-colors hover:text-[var(--color-gold-bright)]"
             >
-              Book Free Session
+              Call: {contactDetails.phone}
             </Link>
-            <Link
-              href={contactDetails.whatsappLink}
-              className="inline-flex min-w-[124px] items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition-opacity hover:opacity-90"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Open WhatsApp chat"
-              style={{
-                backgroundColor: "#57457f",
-                color: "#ffffff",
-                boxShadow: "0 10px 24px rgba(87,69,127,0.24)",
-                letterSpacing: "0.04em",
-              }}
-            >
-              WhatsApp
-            </Link>
-            <span className="hidden rounded-full border border-[rgba(87,69,127,0.14)] bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-muted)] sm:inline-flex">
-              Instagram Soon
-            </span>
             <Link
               href={`mailto:${contactDetails.email}`}
-              className="hidden rounded-full border border-[rgba(87,69,127,0.14)] bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-plum-deep)] transition-opacity hover:opacity-80 sm:inline-flex"
+              className="transition-colors hover:text-[var(--color-gold-bright)]"
             >
-              Email
+              Email: {contactDetails.email}
             </Link>
           </div>
-          <nav className="flex flex-wrap gap-x-4 gap-y-2 text-sm uppercase tracking-[0.18em] text-[var(--color-plum-deep)]">
-            {navItems.map((item) => (
-              (() => {
-                const isActive =
-                  item.href === "/"
-                    ? pathname === "/"
-                    : pathname === item.href || pathname.startsWith(`${item.href}/`);
+        </div>
+      </div>
 
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`rounded-full px-3 py-2 transition-all ${
-                      isActive
-                        ? "border border-[rgba(87,69,127,0.18)] bg-white text-[var(--color-plum-deep)] shadow-[0_10px_24px_rgba(87,69,127,0.12)]"
-                        : "text-[var(--color-plum-deep)] hover:bg-white/70 hover:opacity-80"
-                    }`}
-                    style={
-                      isActive
-                        ? {
-                            boxShadow: "inset 0 -2px 0 var(--color-gold), 0 10px 24px rgba(87,69,127,0.12)",
-                            fontWeight: 700,
-                          }
-                        : undefined
-                    }
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })()
+      <div className="mx-auto w-[min(1220px,calc(100%-2rem))] py-4 sm:w-[min(1220px,calc(100%-3rem))]">
+        <div className="flex items-center justify-between gap-4 xl:hidden">
+          <Link href="/">
+            <LogoMark />
+          </Link>
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen((open) => !open)}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
+            className="rounded-full border border-white/20 px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-ink)]"
+          >
+            {isMenuOpen ? "Close" : "Menu"}
+          </button>
+        </div>
+
+        <div className="hidden xl:flex xl:items-center xl:justify-between">
+          <Link href="/">
+            <LogoMark />
+          </Link>
+          <div className="flex flex-col gap-4 items-end">
+          <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm uppercase tracking-[0.18em] text-[var(--color-ink)]">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="transition-opacity hover:opacity-70"
+              >
+                {item.label}
+              </Link>
             ))}
           </nav>
+
+          <div className="flex flex-wrap gap-2">
+            <Link
+              href={contactDetails.whatsappLink}
+              className="button-whatsapp min-w-[162px]"
+              target="_blank"
+              rel="noreferrer"
+            >
+              WhatsApp Us
+            </Link>
+            <Link href="/book-free-session" className="button-primary cta-booking min-w-[162px]">
+              {siteData.ctaPrimary}
+            </Link>
+          </div>
+          </div>
         </div>
+
+        {isMenuOpen && (
+          <div id="mobile-navigation" className="mt-4 rounded-[1.5rem] border border-white/10 bg-[rgba(14,11,9,0.96)] p-5 xl:hidden">
+            <nav className="grid gap-3 text-sm uppercase tracking-[0.16em] text-[var(--color-ink)]">
+              {navItems.map((item) => (
+                <Link key={item.href} href={item.href} onClick={() => setIsMenuOpen(false)} className="rounded-xl px-3 py-2 transition hover:bg-white/8">
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="mt-5 grid gap-3">
+              <Link href={contactDetails.whatsappLink} className="button-whatsapp" target="_blank" rel="noreferrer">
+                WhatsApp Us
+              </Link>
+              <Link href="/book-free-session" onClick={() => setIsMenuOpen(false)} className="button-secondary">
+                {siteData.ctaPrimary}
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );

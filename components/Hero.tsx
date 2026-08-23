@@ -1,87 +1,114 @@
+"use client";
+
 import Link from "next/link";
-import { contactDetails } from "@/lib/site-data";
+import { useState } from "react";
+import { contactDetails, serviceHighlights, showcaseImages, siteData, stats } from "@/lib/site-data";
 
 export function Hero() {
+  // Keep client project imagery in the portfolio, not in the studio's opening visual.
+  const primaryImage = showcaseImages[3];
+  const secondaryImage = showcaseImages[5];
+  const [pointer, setPointer] = useState({ x: 50, y: 50 });
+
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(106,81,145,0.22),transparent_22%),radial-gradient(circle_at_85%_12%,rgba(221,177,125,0.2),transparent_20%),radial-gradient(circle_at_78%_72%,rgba(233,205,219,0.24),transparent_22%)]" />
-      <div className="absolute left-[-8rem] top-24 h-72 w-72 rounded-full bg-[rgba(255,255,255,0.42)] blur-3xl" />
-      <div className="absolute right-[-5rem] top-10 h-64 w-64 rounded-full bg-[rgba(223,143,124,0.14)] blur-3xl" />
-      <div className="section-shell relative pb-8 pt-8 lg:pt-10">
-        <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
-          <div className="max-w-3xl space-y-6">
-            <p className="eyebrow">Mystical Healing Experience</p>
-            <h1 className="font-display text-5xl leading-none text-[var(--color-plum-deep)] sm:text-6xl lg:text-7xl">
-              Heal with Magic
+    <section
+      className="relative overflow-hidden border-b border-white/6"
+      onMouseMove={(event) => {
+        const bounds = event.currentTarget.getBoundingClientRect();
+        setPointer({
+          x: ((event.clientX - bounds.left) / bounds.width) * 100,
+          y: ((event.clientY - bounds.top) / bounds.height) * 100,
+        });
+      }}
+    >
+      <div
+        className="hero-image-motion absolute inset-0"
+        style={{
+          backgroundImage: `linear-gradient(90deg, rgba(11,9,8,0.92) 0%, rgba(11,9,8,0.72) 42%, rgba(11,9,8,0.58) 100%), url(${primaryImage.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: `${50 + (pointer.x - 50) * 0.05}% ${50 + (pointer.y - 50) * 0.05}%`,
+        }}
+      />
+      <div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(196,154,95,0.24),transparent_18%),radial-gradient(circle_at_82%_18%,rgba(255,255,255,0.12),transparent_16%)]"
+        style={{
+          backgroundPosition: `${pointer.x}% ${pointer.y}%`,
+        }}
+      />
+
+      <div className="section-shell relative pb-10 pt-12 lg:pt-16">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+          <div className="max-w-3xl space-y-7">
+            <p className="eyebrow">{siteData.baseLocation}</p>
+            <h1 className="font-display text-5xl leading-[0.95] text-[var(--color-ink)] sm:text-6xl lg:text-7xl">
+              Interiors planned for the way you live and work.
             </h1>
-            <p className="text-sm uppercase tracking-[0.32em] text-[var(--color-gold)] sm:text-base">
-              Gentle healing, manifestation, and transformation
+            <p className="max-w-2xl text-lg leading-8 text-[var(--color-copy)]">
+              {siteData.companyName} designs and executes homes, offices, restaurants,
+              and commercial spaces with practical planning and dependable site support.
             </p>
-            <p className="max-w-2xl font-display text-xl leading-relaxed text-[var(--color-muted)] sm:text-2xl lg:text-3xl">
-              Emotional healing support for anyone who wants peace, clarity, and a fresh start.
-            </p>
-            <p className="max-w-2xl text-base leading-8 text-[var(--color-muted)] sm:text-lg">
-              If you have been feeling emotionally heavy, blocked in love or money,
-              disconnected from yourself, or unsure how to move forward, this is a
-              safe space to receive healing, guidance, and your next clear step.
-            </p>
-            <div className="grid max-w-2xl gap-3 sm:grid-cols-3">
-              {[
-                "Free session for first enquiry",
-                "WhatsApp guidance after booking",
-                "Paid 21-day healing programs",
-              ].map((item) => (
-                <div
+
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link href={contactDetails.whatsappLink} target="_blank" rel="noreferrer" className="button-whatsapp">
+                WhatsApp Us
+              </Link>
+              <Link href="/book-free-session" className="button-secondary">
+                Book a Free Consultation
+              </Link>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              {serviceHighlights.map((item) => (
+                <span
                   key={item}
-                  className="rounded-[1.2rem] border border-white/70 bg-white/70 px-4 py-3 text-center text-sm font-medium text-[var(--color-plum-deep)] shadow-[0_12px_26px_rgba(87,69,127,0.08)]"
+                  className="rounded-full border border-white/12 bg-white/6 px-4 py-2 text-xs uppercase tracking-[0.2em] text-[var(--color-ink)]"
                 >
                   {item}
+                </span>
+              ))}
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {stats.slice(0, 2).map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-[1.4rem] border border-white/10 bg-white/5 px-4 py-5 backdrop-blur"
+                >
+                  <p className="font-sans text-4xl font-black tracking-tight text-[var(--color-gold-bright)]">
+                    {stat.value}
+                  </p>
+                  <p className="mt-2 text-xs uppercase tracking-[0.16em] text-[var(--color-copy)]">
+                    {stat.label}
+                  </p>
                 </div>
               ))}
             </div>
-            <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:gap-4">
-              <Link
-                href={contactDetails.bookingLink}
-                className="button-primary w-full sm:w-auto"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Book a Free Session
-              </Link>
-              <Link href="/programs" className="button-secondary w-full sm:w-auto">
-                Explore Programs
-              </Link>
-            </div>
           </div>
 
-          <div className="glass-card rounded-[2.3rem] p-6 sm:p-8">
-            <div className="rounded-[2rem] bg-[linear-gradient(145deg,rgba(255,255,255,0.96),rgba(247,236,242,0.88),rgba(255,247,240,0.94))] p-6 shadow-[0_16px_40px_rgba(109,86,131,0.08)]">
-              <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-gold)]">
-                Why people choose this space
-              </p>
-              <h2 className="mt-4 font-display text-4xl text-[var(--color-plum-deep)]">
-                A healing experience that feels soft, personal, and easy to begin.
-              </h2>
-              <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-                You do not need to figure everything out alone first. Start with
-                one conversation, share what you are going through, and receive
-                guidance toward the right program or private healing support.
-              </p>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                {[
-                  "Guided by Shamitha Venkat",
-                  "Private and group options",
-                  "Simple booking process",
-                  "Heart-led healing support",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="gold-outline rounded-[1.4rem] px-4 py-4 text-sm uppercase tracking-[0.18em] text-[var(--color-plum-deep)]"
-                  >
-                    {item}
-                  </div>
-                ))}
+          <div className="grid gap-5 lg:justify-end">
+            <div
+              className="image-overlay hero-feature-card min-h-[24rem] overflow-hidden rounded-[2.2rem] border border-white/12 shadow-[0_32px_80px_rgba(0,0,0,0.28)]"
+              style={{
+                backgroundImage: `url(${secondaryImage.url})`,
+                backgroundSize: "cover",
+                backgroundPosition: `${50 + (pointer.x - 50) * -0.08}% ${50 + (pointer.y - 50) * -0.06}%`,
+              }}
+            >
+              <div className="relative z-10 flex h-full flex-col justify-end p-6">
+                <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-gold-bright)]">
+                  {secondaryImage.tag}
+                </p>
+                <p className="mt-3 max-w-xs font-display text-3xl text-white">
+                  {secondaryImage.title}
+                </p>
               </div>
+            </div>
+
+            <div className="glass-panel rounded-[2rem] p-6">
+              <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-gold-bright)]">Homes and businesses</p>
+              <p className="mt-3 text-lg leading-8 text-[var(--color-copy)]">
+                Design support for homes, restaurants, offices, and hospitality spaces across Andhra Pradesh and Hyderabad.
+              </p>
             </div>
           </div>
         </div>

@@ -1,251 +1,189 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { contactDetails } from "@/lib/site-data";
+import { contactDetails, services, siteData } from "@/lib/site-data";
 
 type FormState = {
   name: string;
   phone: string;
-  email: string;
-  focus: string;
-  preferredMode: string;
+  service: string;
+  location: string;
+  budget: string;
   message: string;
 };
 
 const initialState: FormState = {
   name: "",
   phone: "",
-  email: "",
-  focus: "",
-  preferredMode: "Free session on WhatsApp",
+  service: "",
+  location: "",
+  budget: "",
   message: "",
 };
 
+const formFieldClassName =
+  "w-full rounded-[1.25rem] border border-[rgba(95,73,45,0.22)] bg-white px-4 py-3 text-base text-[#241c15] shadow-[0_8px_22px_rgba(0,0,0,0.08)] outline-none transition placeholder:text-[#7b6b5a] focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[rgba(196,154,95,0.18)]";
+
 export function BookingForm() {
   const [form, setForm] = useState<FormState>(initialState);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState("");
-  const [isSuccessRedirecting, setIsSuccessRedirecting] = useState(false);
 
-  const canContinue = useMemo(() => {
-    return Boolean(form.name.trim() && form.phone.trim());
-  }, [form.name, form.phone]);
+  const isValid = useMemo(() => {
+    return Boolean(form.name.trim() && form.phone.trim() && form.message.trim());
+  }, [form]);
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((current) => ({ ...current, [key]: value }));
   }
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (!canContinue || isSubmitting || isSuccessRedirecting) {
+    if (!isValid) {
       return;
     }
 
-    setSubmitError("");
-    setIsSubmitting(true);
-
     const lines = [
-      "Hello Heal with Magic team, I would like to book a free session.",
+      `Hello ${siteData.companyName} team, I would like to book a free consultation.`,
       "",
       `Name: ${form.name}`,
       `Phone / WhatsApp: ${form.phone}`,
-      form.email ? `Email: ${form.email}` : "",
-      form.focus ? `Area I need help with: ${form.focus}` : "",
-      `Preferred session mode: ${form.preferredMode}`,
+      form.service ? `Interested service: ${form.service}` : "",
+      form.location ? `Location: ${form.location}` : "",
+      form.budget ? `Budget range: ${form.budget}` : "",
       "",
-      "Message:",
-      form.message || "Not provided",
+      "Project details:",
+      form.message,
     ].filter(Boolean);
 
-    try {
-      const response = await fetch(`https://formsubmit.co/ajax/${contactDetails.email}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          _subject: "New free session lead - Heal with Magic",
-          _captcha: "false",
-          name: form.name,
-          phone: form.phone,
-          email: form.email || "Not provided",
-          focus: form.focus || "Not selected",
-          preferredMode: form.preferredMode,
-          message: form.message || "Not provided",
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Lead submission failed");
-      }
-
-      const url = `https://wa.me/${contactDetails.whatsappNumber}?text=${encodeURIComponent(lines.join("\n"))}`;
-      setIsSuccessRedirecting(true);
-      window.setTimeout(() => {
-        window.location.assign(url);
-      }, 900);
-    } catch {
-      setSubmitError(
-        "We could not submit your details just now. Please try again in a moment so your enquiry reaches the team."
-      );
-      setIsSubmitting(false);
-    }
+    const whatsappUrl = `https://wa.me/${contactDetails.whatsappNumber}?text=${encodeURIComponent(lines.join("\n"))}`;
+    window.location.href = whatsappUrl;
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+    <form onSubmit={handleSubmit} data-lead-event="consultation_submit" className="mt-8 space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label
             htmlFor="booking-name"
-            className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-plum)]"
+            className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-gold-bright)]"
           >
             Full name
           </label>
           <input
             id="booking-name"
-            type="text"
             value={form.name}
             onChange={(event) => updateField("name", event.target.value)}
+            type="text"
             required
-            autoFocus
-            className="w-full rounded-[1.25rem] border border-white/70 bg-white/85 px-4 py-3 text-base text-[var(--color-plum)] outline-none transition focus:border-[var(--color-gold)]"
-            placeholder="Your full name"
+            className={formFieldClassName}
+            placeholder="Your name"
           />
         </div>
 
         <div>
           <label
             htmlFor="booking-phone"
-            className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-plum)]"
+            className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-gold-bright)]"
           >
             Phone / WhatsApp
           </label>
           <input
             id="booking-phone"
-            type="text"
             value={form.phone}
             onChange={(event) => updateField("phone", event.target.value)}
+            type="text"
             required
-            className="w-full rounded-[1.25rem] border border-white/70 bg-white/85 px-4 py-3 text-base text-[var(--color-plum)] outline-none transition focus:border-[var(--color-gold)]"
+            className={formFieldClassName}
             placeholder="Best number to reach you"
           />
         </div>
 
         <div>
           <label
-            htmlFor="booking-email"
-            className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-plum)]"
+            htmlFor="booking-service"
+            className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-gold-bright)]"
           >
-            Email
+            Interested service
           </label>
-          <input
-            id="booking-email"
-            type="email"
-            value={form.email}
-            onChange={(event) => updateField("email", event.target.value)}
-            className="w-full rounded-[1.25rem] border border-white/70 bg-white/85 px-4 py-3 text-base text-[var(--color-plum)] outline-none transition focus:border-[var(--color-gold)]"
-            placeholder="Optional email address"
-          />
+          <select
+            id="booking-service"
+            value={form.service}
+            onChange={(event) => updateField("service", event.target.value)}
+            className={formFieldClassName}
+          >
+            <option value="">Select a service</option>
+            {services.map((service) => (
+              <option key={service.name} value={service.name}>
+                {service.name}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div>
-          <label
-            htmlFor="booking-focus"
-            className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-plum)]"
-          >
-            I need help with
+          <label htmlFor="booking-location" className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-gold-bright)]">
+            Property location
           </label>
-          <select
-            id="booking-focus"
-            value={form.focus}
-            onChange={(event) => updateField("focus", event.target.value)}
-            className="w-full rounded-[1.25rem] border border-white/70 bg-white/85 px-4 py-3 text-base text-[var(--color-plum)] outline-none transition focus:border-[var(--color-gold)]"
-          >
-            <option value="">Select one</option>
-            <option>Free healing guidance session</option>
-            <option>Career and money group healing</option>
-            <option>Health and relationships group healing</option>
-            <option>Chakra healing</option>
-            <option>One-to-one healing</option>
-            <option>Emotional healing support</option>
-            <option>Not sure yet</option>
-          </select>
+          <input
+            id="booking-location"
+            value={form.location}
+            onChange={(event) => updateField("location", event.target.value)}
+            type="text"
+            className={formFieldClassName}
+            placeholder="City / area"
+          />
         </div>
       </div>
 
       <div>
         <label
-          htmlFor="booking-mode"
-          className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-plum)]"
+          htmlFor="booking-budget"
+          className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-gold-bright)]"
         >
-          Preferred next step
+          Approximate budget range
         </label>
         <select
-          id="booking-mode"
-          value={form.preferredMode}
-          onChange={(event) => updateField("preferredMode", event.target.value)}
-          className="w-full rounded-[1.25rem] border border-white/70 bg-white/85 px-4 py-3 text-base text-[var(--color-plum)] outline-none transition focus:border-[var(--color-gold)]"
+          id="booking-budget"
+          value={form.budget}
+          onChange={(event) => updateField("budget", event.target.value)}
+          className={formFieldClassName}
         >
-          <option>Free session on WhatsApp</option>
-          <option>Guidance before booking</option>
-          <option>Program information</option>
-          <option>Private one-to-one session details</option>
+          <option value="">Select a range</option>
+          <option>Below Rs. 5 lakh</option>
+          <option>Rs. 5-10 lakh</option>
+          <option>Rs. 10-20 lakh</option>
+          <option>Above Rs. 20 lakh</option>
+          <option>Prefer to discuss</option>
         </select>
       </div>
 
       <div>
         <label
           htmlFor="booking-message"
-          className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-plum)]"
+          className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-gold-bright)]"
         >
-          Tell us a little more
-          <span className="ml-2 text-[10px] tracking-[0.18em] text-[var(--color-muted)]">
-            Optional
-          </span>
+          What do you need help with?
         </label>
         <textarea
           id="booking-message"
-          rows={5}
           value={form.message}
           onChange={(event) => updateField("message", event.target.value)}
-          placeholder="If you want, share what you are currently going through and what kind of support you are looking for."
-          className="w-full rounded-[1.25rem] border border-white/70 bg-white/85 px-4 py-3 text-base text-[var(--color-plum)] outline-none transition focus:border-[var(--color-gold)]"
+          required
+          rows={5}
+          placeholder="Tell us about the space and what you need help with."
+          className={formFieldClassName}
         />
       </div>
 
-      <div className="rounded-[1.4rem] border border-[var(--color-blush)]/70 bg-[var(--color-ivory)]/80 px-5 py-4 text-sm leading-7 text-[var(--color-muted)]">
-        This is a free enquiry step and takes less than one minute. When you continue,
-        your details are sent to the team first and then WhatsApp opens with the same
-        information already filled in, so you can get a faster and more personal response.
+      <div className="rounded-[1.4rem] border border-[rgba(196,154,95,0.2)] bg-[rgba(196,154,95,0.08)] px-5 py-4 text-sm leading-7 text-[var(--color-copy)]">
+        WhatsApp will open with your details already filled in. Send the message and our team will contact you.
       </div>
 
-      {isSuccessRedirecting ? (
-        <div className="rounded-[1.25rem] border border-[rgba(141,106,53,0.18)] bg-[rgba(255,252,245,0.96)] px-5 py-4 text-sm leading-7 text-[var(--color-plum-deep)]">
-          Your details were sent successfully. Opening WhatsApp now. If WhatsApp does not open,
-          please use the WhatsApp button in the header after this step.
-        </div>
-      ) : null}
-
-      {submitError ? (
-        <div className="rounded-[1.25rem] border border-[rgba(190,92,92,0.2)] bg-[rgba(255,245,245,0.95)] px-5 py-4 text-sm leading-7 text-[#8b4343]">
-          {submitError}
-        </div>
-      ) : null}
-
-      <button
-        type="submit"
-        className="button-primary border-0 disabled:cursor-not-allowed disabled:opacity-70"
-        disabled={!canContinue || isSubmitting || isSuccessRedirecting}
-      >
-        {isSuccessRedirecting
-          ? "Opening WhatsApp..."
-          : isSubmitting
-            ? "Sending your details..."
-            : "Send My Enquiry and Continue to WhatsApp"}
-      </button>
+      <div className="flex flex-wrap gap-4">
+        <button type="submit" className="button-primary border-0" disabled={!isValid}>
+          Continue on WhatsApp
+        </button>
+      </div>
     </form>
   );
 }

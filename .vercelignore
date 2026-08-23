@@ -1,0 +1,6 @@
+.next
+node_modules
+dev-server.log
+.next-dev.log
+.next-dev.err.log
+*.log

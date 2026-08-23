@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import Script from "next/script";
+import { LeadTracking } from "@/components/LeadTracking";
+import { siteData } from "@/lib/site-data";
 import "./globals.css";
-import { contactDetails } from "@/lib/site-data";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3001");
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 const displayFont = Cormorant_Garamond({
   variable: "--font-display",
@@ -22,41 +24,34 @@ const bodyFont = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Heal with Magic",
-    template: "%s | Heal with Magic",
+    default: siteData.companyName,
+    template: `%s | ${siteData.companyName}`,
   },
-  description:
-    "Heal with Magic by Shamitha Venkat offers gentle healing sessions, 21-day programs, WhatsApp support, and heart-led guidance for emotional balance and transformation.",
-  alternates: {
-    canonical: "/",
-  },
+  description: siteData.description,
   keywords: [
-    "Heal with Magic",
-    "Shamitha Venkat",
-    "healing sessions",
-    "Ho'oponopono healing",
-    "energy healing",
-    "holistic healing support",
-    "healing programs India",
+    "Design Space and Infra",
+    "interior designers in Guntur",
+    "residential interiors Andhra Pradesh",
+    "commercial interiors Hyderabad",
+    "modular kitchen design",
+    "custom furniture interiors",
   ],
   icons: {
-    icon: "/heal-with-magic-logo-white.jpg",
-    shortcut: "/heal-with-magic-logo-white.jpg",
-    apple: "/heal-with-magic-logo-white.jpg",
+    icon: "/design-space-logo.jpg",
+    shortcut: "/design-space-logo.jpg",
+    apple: "/design-space-logo.jpg",
   },
   openGraph: {
-    title: "Heal with Magic",
-    description:
-      "Gentle healing, manifestation, and transformation with Shamitha Venkat.",
-    siteName: "Heal with Magic",
+    title: siteData.companyName,
+    description: siteData.description,
+    siteName: siteData.companyName,
     type: "website",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Heal with Magic",
-    description:
-      "Gentle healing, manifestation, and transformation with Shamitha Venkat.",
+    title: siteData.companyName,
+    description: siteData.description,
     images: ["/opengraph-image"],
   },
 };
@@ -66,42 +61,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const socialLinks = contactDetails.instagramLink ? [contactDetails.instagramLink] : [];
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        name: "Heal with Magic",
-        url: siteUrl,
-      },
-      {
-        "@type": "Person",
-        name: "Shamitha Venkat",
-        url: siteUrl,
-        email: contactDetails.email,
-        sameAs: socialLinks,
-      },
-      {
-        "@type": "Organization",
-        name: "Heal with Magic",
-        url: siteUrl,
-        email: contactDetails.email,
-        telephone: contactDetails.phone,
-        sameAs: socialLinks,
-      },
-    ],
-  };
-
   return (
     <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}>
       <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        {googleAnalyticsId && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} strategy="afterInteractive" />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${googleAnalyticsId}');`}
+            </Script>
+          </>
+        )}
+        <LeadTracking />
         {children}
-        <Analytics />
       </body>
     </html>
   );

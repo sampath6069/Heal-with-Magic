@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --color-ivory: #f8f4fb;
-  --color-rose: #eadff0;
-  --color-blush: #f4d9de;
-  --color-plum: #57457f;
-  --color-plum-deep: #3f315f;
-  --color-muted: #6f6583;
-  --color-gold: #8d6a35;
-  --color-gold-soft: #d7b57c;
-  --color-coral: #df8f7c;
-  --color-ink: #322646;
-  --color-warm-white: rgba(255, 255, 255, 0.78);
-  --shadow-luxe: 0 26px 80px rgba(94, 70, 119, 0.14);
-  --shadow-soft: 0 18px 48px rgba(125, 94, 124, 0.1);
+  --color-bg: #12100e;
+  --color-bg-soft: #1b1713;
+  --color-surface: #201b16;
+  --color-panel: rgba(36, 29, 23, 0.72);
+  --color-panel-soft: rgba(248, 240, 229, 0.08);
+  --color-line: rgba(255, 255, 255, 0.1);
+  --color-gold: #c49a5f;
+  --color-gold-bright: #e0bd8f;
+  --color-ink: #f6efe6;
+  --color-copy: rgba(246, 239, 230, 0.82);
+  --color-muted: rgba(246, 239, 230, 0.62);
+  --color-card: #f4eadc;
+  --color-card-ink: #211b16;
 }
 
 @theme inline {
@@ -35,11 +35,9 @@ body {
   color: var(--color-ink);
   font-family: var(--font-body), sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.96), transparent 32%),
-    radial-gradient(circle at 18% 18%, rgba(123, 101, 165, 0.2), transparent 22%),
-    radial-gradient(circle at 84% 11%, rgba(247, 205, 170, 0.22), transparent 19%),
-    radial-gradient(circle at 82% 72%, rgba(222, 182, 200, 0.24), transparent 22%),
-    linear-gradient(180deg, #fffdff 0%, #f8f2fa 34%, #f2ebf6 100%);
+    radial-gradient(circle at top left, rgba(196, 154, 95, 0.16), transparent 20%),
+    radial-gradient(circle at 85% 12%, rgba(255, 255, 255, 0.08), transparent 18%),
+    linear-gradient(180deg, #151210 0%, #100d0b 40%, #18130f 100%);
 }
 
 body::before {
@@ -47,12 +45,12 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.45;
   background:
-    linear-gradient(rgba(141, 106, 53, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(141, 106, 53, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
   background-size: 80px 80px;
-  mask-image: radial-gradient(circle at center, black 22%, transparent 82%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 85%);
+  opacity: 0.55;
 }
 
 a {
@@ -65,86 +63,287 @@ a {
 }
 
 .section-shell {
-  width: min(1120px, calc(100% - 2rem));
+  width: min(1220px, calc(100% - 2rem));
   margin-inline: auto;
-  padding-block: 4rem;
+  padding-block: 4.5rem;
 }
 
 .eyebrow {
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
+  font-size: 0.78rem;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: var(--color-gold-bright);
 }
 
 .button-primary,
-.button-secondary {
+.button-secondary,
+.button-tertiary,
+.button-whatsapp,
+.button-light {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 3.25rem;
+  min-height: 3.3rem;
   border-radius: 999px;
-  padding: 0.85rem 1.5rem;
+  padding: 0.9rem 1.55rem;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
-    background-color 180ms ease;
+    background-color 180ms ease,
+    border-color 180ms ease,
+    opacity 180ms ease;
 }
 
 .button-primary {
-  background: linear-gradient(135deg, #cda060 0%, #b17a44 100%);
-  color: #fffaf8;
-  box-shadow: 0 18px 40px rgba(177, 122, 68, 0.26);
+  background: linear-gradient(135deg, #d4ae7a 0%, #a87a43 100%);
+  color: #140f0a;
+  box-shadow: 0 18px 40px rgba(164, 117, 58, 0.26);
 }
 
 .button-secondary {
-  border: 1px solid rgba(87, 69, 127, 0.16);
-  background: rgba(255, 255, 255, 0.86);
-  color: var(--color-plum-deep);
-  box-shadow: 0 12px 30px rgba(107, 84, 124, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-ink);
+  backdrop-filter: blur(12px);
+}
+
+.button-tertiary {
+  border: 1px solid rgba(196, 154, 95, 0.26);
+  background: rgba(196, 154, 95, 0.08);
+  color: var(--color-gold-bright);
+}
+
+.button-whatsapp {
+  border: 1px solid #8be2ae !important;
+  background: #168b4b !important;
+  color: #ffffff !important;
+  box-shadow: 0 16px 34px rgba(22, 139, 75, 0.42) !important;
+}
+
+.button-whatsapp:hover {
+  background: #0f733c !important;
+  box-shadow: 0 20px 40px rgba(22, 139, 75, 0.55) !important;
+}
+
+.button-light {
+  border: 1px solid rgba(255, 244, 226, 0.62);
+  background: #fff8ef;
+  color: #251a10;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
 }
 
 .button-primary:hover,
-.button-secondary:hover {
+.button-secondary:hover,
+.button-tertiary:hover,
+.button-whatsapp:hover,
+.button-light:hover {
   transform: translateY(-1px);
 }
 
-.glass-card {
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 249, 253, 0.75));
-  box-shadow: var(--shadow-luxe);
+.cta-booking {
+  position: relative;
+  isolation: isolate;
+  box-shadow:
+    0 18px 40px rgba(164, 117, 58, 0.38),
+    0 0 0 1px rgba(255, 235, 194, 0.28) inset;
+  animation: booking-glow 2.8s ease-in-out infinite;
+}
+
+.cta-booking:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 24px 52px rgba(164, 117, 58, 0.5),
+    0 0 0 1px rgba(255, 235, 194, 0.42) inset;
+}
+
+.glass-panel {
+  border: 1px solid var(--color-line);
+  background: var(--color-panel);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(18px);
 }
 
-.soft-panel {
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(244, 231, 239, 0.74));
-  box-shadow: var(--shadow-soft);
+.light-panel {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: linear-gradient(180deg, rgba(255, 251, 246, 0.96), rgba(244, 234, 220, 0.9));
+  color: var(--color-card-ink);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.18);
 }
 
-.gold-outline {
-  border: 1px solid rgba(141, 106, 53, 0.18);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 249, 241, 0.72));
-}
-
-.ornament-line {
+.image-overlay {
   position: relative;
+  overflow: hidden;
 }
 
-.ornament-line::after {
+.image-overlay::after {
   content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 13, 11, 0.04), rgba(16, 13, 11, 0.74));
+}
+
+.hero-image-motion {
+  transform: scale(1.035);
+  transition: background-position 280ms ease-out;
+}
+
+.hero-feature-card {
+  transition:
+    transform 320ms ease,
+    box-shadow 320ms ease,
+    background-position 280ms ease-out;
+}
+
+.hero-feature-card:hover {
+  transform: translateY(-8px) rotate(-0.35deg);
+  box-shadow: 0 42px 100px rgba(0, 0, 0, 0.36);
+}
+
+.project-explorer-image {
+  animation: project-image-enter 700ms ease both;
+}
+
+.project-showcase {
+  box-shadow: 0 36px 100px rgba(0, 0, 0, 0.28);
+}
+
+.service-showcase {
+  box-shadow: 0 36px 100px rgba(0, 0, 0, 0.28);
+}
+
+.service-hero-image {
+  background-size: cover;
+  animation: project-image-enter 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: background-position 500ms ease-out;
+}
+
+.project-hero-image {
+  animation: project-image-enter 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: transform 500ms ease-out;
+}
+
+.project-thumbnail img {
+  transition: transform 280ms ease;
+}
+
+.project-thumbnail:hover img,
+.project-thumbnail[aria-pressed="true"] img {
+  transform: scale(1.08);
+}
+
+.project-tour-progress {
+  position: relative;
   display: block;
-  width: 7rem;
-  height: 1px;
-  margin-top: 1rem;
-  background: linear-gradient(90deg, transparent, rgba(141, 106, 53, 0.8), transparent);
+  height: 2px;
+  width: 5rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.project-tour-progress::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: var(--color-gold-bright);
+}
+
+.project-tour-progress.is-playing::after {
+  animation: project-tour-progress 6.5s linear both;
+}
+
+.service-tour-progress {
+  position: relative;
+  display: block;
+  height: 2px;
+  width: 5rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.service-tour-progress::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: var(--color-gold-bright);
+}
+
+.service-tour-progress.is-playing::after {
+  animation: service-tour-progress 5.6s linear both;
+}
+
+.reveal-on-scroll {
+  animation: fade-up 700ms ease both;
+  animation-timeline: view();
+  animation-range: entry 12% cover 30%;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes project-image-enter {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes project-tour-progress {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes service-tour-progress {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes booking-glow {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @media (min-width: 768px) {
   .section-shell {
-    width: min(1120px, calc(100% - 3rem));
-    padding-block: 5rem;
+    width: min(1220px, calc(100% - 3rem));
+    padding-block: 5.5rem;
   }
 }
