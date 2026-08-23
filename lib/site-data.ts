@@ -25,24 +25,24 @@ export const careersContent = {
 
 export const founders = [
   {
-    name: "Sandeep Kura",
+    name: "Sandeep Kurra",
     role: "CEO and Lead Interior Designer",
     experience: "10+ years of experience",
     image: "/sandeep-kura-executive.png",
     imagePosition: "center center",
     focus: ["Design planning", "Space use", "Material selection"],
     description:
-      "Sandeep Kura leads the design work at Design Space and Infra. With more than 10 years of experience, he has worked on homes, restaurants, bars, and function halls, with focus on practical layouts and good finishing.",
+      "Sandeep Kurra leads the design work at Design Space and Infra. With more than 10 years of experience, he has worked on homes, restaurants, bars, and function halls, with focus on practical layouts and good finishing.",
   },
   {
-    name: "Sasaank Kura",
+    name: "Sasaank Kurra",
     role: "Director",
     experience: "8+ years of experience",
     image: "/sasaank-kura-final.png",
     imagePosition: "center center",
     focus: ["Execution planning", "Budget clarity", "Delivery coordination"],
     description:
-      "Sasaank Kura manages planning, budgets, and site coordination. His studies in construction project and cost management in the United Kingdom help the team keep design decisions practical and work on site organised.",
+      "Sasaank Kurra manages planning, budgets, and site coordination. His studies in construction project and cost management in the United Kingdom help the team keep design decisions practical and work on site organised.",
   },
 ] as const;
 
@@ -457,7 +457,7 @@ export const aboutContent = {
     "Design Space and Infra is based in Guntur and works with residential and commercial clients across Andhra Pradesh and Hyderabad.",
   body: [
     "Our work includes homes, restaurants, bars, and function halls. We plan each space around daily use, available area, materials, lighting, furniture, and the client budget.",
-    "Sandeep Kura and Sasaank Kura lead the design and coordination work. The team combines interior planning with construction understanding, material selection, budgeting, and on-site follow-up.",
+    "Sandeep Kurra and Sasaank Kurra lead the design and coordination work. The team combines interior planning with construction understanding, material selection, budgeting, and on-site follow-up.",
   ],
 } as const;
 
