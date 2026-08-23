@@ -1,86 +1,88 @@
-# Heal with Magic Instagram 30-Day Content Calendar
+# Design Space and Infra Instagram Content Calendar
 
-## Posting rhythm
-- Reels: 4 per week
-- Stories: almost daily
-- CTA in most posts: free session or WhatsApp enquiry
+## Posting Rhythm
+
+- Reels: 3 to 4 per week
+- Stories: 4 to 6 per week
+- Main CTA: WhatsApp enquiry or free consultation
 
 ## Week 1
+
 ### Reel 1
-Topic: Signs you are carrying emotional heaviness
-CTA: Book a free session
+Topic: Restaurant interior details from a completed project
+CTA: Discuss a similar project
 
 ### Reel 2
-Topic: Why healing support can help when nothing else feels clear
-CTA: Message on WhatsApp
+Topic: Modular kitchen planning tips for Guntur homes
+CTA: Book a free consultation
 
 ### Reel 3
-Topic: Career and money blocks are not always only practical
-CTA: Explore programs
+Topic: How lighting changes the feel of a dining space
+CTA: WhatsApp your requirement
 
 ### Reel 4
-Topic: A soft reminder for people feeling mentally tired
-CTA: Book a free session
+Topic: Before and after of a wall, ceiling, or furniture detail
+CTA: Call for site visit
 
 ## Week 2
+
 ### Reel 1
-Topic: Relationship pain and emotional energy
-CTA: Ask before joining
+Topic: Wardrobe and storage ideas for apartments
+CTA: Book a free consultation
 
 ### Reel 2
-Topic: What a 21-day healing program can do
-CTA: Explore programs
+Topic: Commercial interior checklist before opening a restaurant
+CTA: Discuss your project
 
 ### Reel 3
-Topic: What happens after you book a free session
-CTA: Book a free session
+Topic: Materials that look premium and are practical for daily use
+CTA: Ask on WhatsApp
 
 ### Reel 4
-Topic: Gentle message for someone feeling stuck in life
-CTA: Message on WhatsApp
+Topic: Project walk-through with simple captions
+CTA: View projects on the website
 
 ## Week 3
+
 ### Reel 1
-Topic: Chakra healing for balance and clarity
-CTA: Ask before joining
+Topic: Bedroom interior mistakes to avoid
+CTA: Share your room size
 
 ### Reel 2
-Topic: When to choose one-to-one healing
-CTA: Explore programs
+Topic: Indian-style living room ideas with warm lighting
+CTA: Book a free consultation
 
 ### Reel 3
-Topic: You do not need to have everything figured out first
-CTA: Book a free session
+Topic: Custom furniture details made for the space
+CTA: WhatsApp your requirement
 
 ### Reel 4
-Topic: A calming spiritual reminder with a practical next step
-CTA: WhatsApp enquiry
+Topic: Hotel or hospitality project highlight
+CTA: Discuss a similar project
 
 ## Week 4
+
 ### Reel 1
-Topic: Why free guidance first helps many people
-CTA: Book a free session
+Topic: How a site visit helps avoid wrong estimates
+CTA: Call for site visit
 
 ### Reel 2
-Topic: Healing for career, love, and inner peace
-CTA: Explore programs
+Topic: False ceiling, wall panels, and lighting combination
+CTA: Talk to our designers
 
 ### Reel 3
-Topic: A story-based transformation message
-CTA: Ask before joining
+Topic: Simple budget planning for home interiors
+CTA: Book a free consultation
 
 ### Reel 4
-Topic: End-of-month invitation to start healing
-CTA: Book a free session
+Topic: Founder or team message about quality and execution
+CTA: WhatsApp Design Space and Infra
 
-## Story ideas to rotate
-- ask a simple question poll
-- share a client-safe insight
-- show the website booking flow
-- remind people of WhatsApp support
-- highlight one program each week
+## Story Ideas
 
-## Best CTA order
-1. Free session
-2. WhatsApp question
-3. Program join
+- Share one finished project photo.
+- Show material selection or laminate options.
+- Ask a poll: home interior or commercial interior?
+- Share a client review once real reviews are available.
+- Share a site visit or work-in-progress update.
+- Remind people about WhatsApp consultation.

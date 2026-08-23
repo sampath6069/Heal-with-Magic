@@ -1,96 +1,61 @@
-# Heal with Magic Lead Generation Playbook
+# Design Space and Infra Lead Generation Playbook
 
-## Main goal
-Get more people to:
-- book a free session
-- ask questions on WhatsApp
-- join a paid 21-day healing program
+## Main Goal
 
-## Best conversion path
-1. Person sees an Instagram Reel or story.
-2. Person visits the website.
-3. Person books a free session or asks on WhatsApp.
-4. Shamitha or the team replies personally.
-5. Person is guided to the right paid program.
+Bring qualified enquiries for home interiors, commercial interiors, restaurants, hotels, bars, offices, and custom furniture work.
 
-## Primary offer to promote first
-Promote the free session first.
+## Best Conversion Path
 
-Reason:
-- lower friction
-- easier for new people to trust
-- better for people who are unsure which program fits them
-- gives a natural path into paid programs later
+1. Visitor sees project photos, Google listing, referral, or social media content.
+2. Visitor lands on the website and checks project proof.
+3. Visitor submits the short enquiry form or starts WhatsApp.
+4. Team calls or replies on WhatsApp within the same working day.
+5. Team confirms requirement, location, rough budget, and whether a site visit is needed.
+6. Team shares the next step: consultation, site visit, design discussion, or quotation.
 
-## Main call to action to use everywhere
-Use this CTA most often:
+## Primary CTA
 
-`Book your free healing session and get personal guidance on the best next step for you.`
+Use this most often:
 
-## Secondary calls to action
-Use these when needed:
+`Share your space details and talk to our designers on WhatsApp.`
 
-`Message on WhatsApp to ask before joining`
+## Secondary CTAs
 
-`Choose your 21-day healing program`
+`Book a free consultation`
 
-## Weekly sales workflow
-### Every week
-1. Post 4 to 5 Instagram Reels.
-2. Post 3 to 5 Instagram Stories.
-3. Reply to every DM within 24 hours.
-4. Reply to every website enquiry within 24 hours.
-5. Send one follow-up message to warm leads who did not join.
+`Discuss a similar project`
 
-### Every day
-1. Check Gmail for free session enquiries.
-2. Check WhatsApp for new questions.
-3. Follow up with anyone who asked about a program but did not pay.
+`Call for site visit and quotation`
 
-## Lead follow-up sequence
-### After a free session enquiry comes in
-Send:
+## Daily Lead Handling
 
-`Hello, thank you for reaching out to Heal with Magic. I received your enquiry. I would be happy to understand what you are going through and guide you to the right next step.`
+1. Check WhatsApp enquiries.
+2. Check website lead emails after email delivery is configured.
+3. Call serious enquiries quickly, especially commercial and full-home projects.
+4. Ask for location, property type, scope, timeline, and budget comfort.
+5. Save each lead with name, phone, city, requirement, and next follow-up date.
 
-### After the first WhatsApp reply
-Send:
+## First Reply Template
 
-`Thank you for sharing. Based on what you are experiencing, I feel the best next step may be [program name]. If you want, I can explain how it works and whether it is right for you.`
+`Hello, thank you for contacting Design Space and Infra. Please share your location, property type, and what interior work you are planning. We will guide you with the next step.`
 
-### If they go silent
-Send after 2 days:
+## Follow-Up Template
 
-`Hello, just checking in gently. If you still want support, I am here and happy to guide you.`
+`Hello, just checking if you would like to continue the discussion for your interior work. We can help with design, material guidance, execution planning, and site coordination.`
 
-### If they are interested but unsure
-Send:
+## Content To Collect
 
-`That is completely okay. Many people begin with a free session or a short WhatsApp conversation before choosing a program.`
+- Finished room photos.
+- Before and after photos.
+- Short videos of lighting, furniture, and ceiling details.
+- Client reviews with name and city.
+- Google Business Profile rating and review count.
+- Residential project photos to balance the commercial portfolio.
 
-## Best first audience
-Start with:
-- working professionals under stress
-- people facing emotional heaviness
-- people facing career and money blocks
-- people facing relationship pain
-- spiritual audience that already believes in healing support
+## What To Avoid
 
-## What to avoid
-- do not push paid programs too early in every post
-- do not make the website sound too vague or too spiritual without practical benefit
-- do not leave DMs or WhatsApp leads waiting too long
-- do not run ads before testing your organic content first
-
-## 30-day target
-Aim for:
-- 20 to 40 website enquiries
-- 10 to 20 meaningful WhatsApp conversations
-- 3 to 8 paid joins depending on audience quality
-
-## What to measure
-- number of free session submissions
-- number of WhatsApp conversations started
-- number of people asking about programs
-- number of people paying for programs
-- which Instagram posts brought the best leads
+- Do not use too many foreign-looking interior images.
+- Do not overpromise budget before measurements.
+- Do not publish fake reviews as real client feedback.
+- Do not keep two different phone numbers without labels.
+- Do not rely only on WhatsApp if the website form can also email leads.

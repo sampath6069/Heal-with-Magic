@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Design Space and Infra Website
 
-## Getting Started
+Premium website for Design Space and Infra, an interior design and execution company based in Guntur and serving Andhra Pradesh and Hyderabad.
 
-First, run the development server:
+Live website: https://www.designspaceandinfra.com/
+
+## What The Website Does
+
+- Presents residential and commercial interior services.
+- Shows featured hotel, restaurant, dhaba, and hospitality projects.
+- Sends enquiry details to the website lead endpoint before opening WhatsApp.
+- Supports custom domain SEO through sitemap, robots, metadata, and local business schema.
+- Uses mobile-friendly call and WhatsApp actions for faster enquiries.
+
+## Local Preview
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
+Open http://localhost:3000 in the browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production Setup Still Needed
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+These items require account access or business confirmation:
 
-## Learn More
+- Create the business mailbox `info@designspaceandinfra.com` through Google Workspace, Zoho Mail, or another email provider.
+- Add the email provider MX records in the domain DNS settings.
+- Add a Resend API key in Vercel as `RESEND_API_KEY` so website forms can email leads.
+- Add real Google reviews or client testimonials before final advertising.
+- Add at least one residential project case study when photos are available.
+- Complete the billing address warning in Vercel account settings.
 
-To learn more about Next.js, take a look at the following resources:
+## Useful Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+NEXT_PUBLIC_SITE_URL=https://www.designspaceandinfra.com
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+LEAD_TO_EMAIL=info@designspaceandinfra.com
+LEAD_FROM_EMAIL=Design Space and Infra <onboarding@resend.dev>
+RESEND_API_KEY=re_xxxxxxxxx
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The form still opens WhatsApp even when `RESEND_API_KEY` is not configured, but email delivery starts only after the key is added.

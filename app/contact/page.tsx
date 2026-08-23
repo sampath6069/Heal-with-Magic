@@ -11,7 +11,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+    (process.env.VERCEL_ENV === "production"
+      ? "https://www.designspaceandinfra.com"
+      : process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : "http://localhost:3000");
   const formFieldClassName =
     "w-full rounded-[1.25rem] border border-[rgba(95,73,45,0.22)] bg-white px-4 py-3 text-base text-[#241c15] shadow-[0_8px_22px_rgba(0,0,0,0.08)] outline-none transition placeholder:text-[#7b6b5a] focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[rgba(196,154,95,0.18)]";
 
