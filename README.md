@@ -20,13 +20,20 @@ npm run dev
 
 Open http://localhost:3000 in the browser.
 
-## Production Setup Still Needed
+## Production Setup Status
 
-These items require account access or business confirmation:
+Completed:
+
+- Custom domain is live at `https://www.designspaceandinfra.com/`.
+- Resend is connected to Vercel for Production and Preview.
+- `RESEND_API_KEY` and `RESEND_EMAIL_DOMAIN` are available in Vercel.
+- Website form submissions are accepted by the live API endpoint.
+- Resend domain sending is verified for `designspaceandinfra.com`.
+
+Still needed:
 
 - Create the business mailbox `info@designspaceandinfra.com` through Google Workspace, Zoho Mail, or another email provider.
 - Add the email provider MX records in the domain DNS settings.
-- Add a Resend API key in Vercel as `RESEND_API_KEY` so website forms can email leads.
 - Add real Google reviews or client testimonials before final advertising.
 - Add at least one residential project case study when photos are available.
 - Complete the billing address warning in Vercel account settings.
@@ -41,4 +48,4 @@ LEAD_FROM_EMAIL=Design Space and Infra <onboarding@resend.dev>
 RESEND_API_KEY=re_xxxxxxxxx
 ```
 
-The form still opens WhatsApp even when `RESEND_API_KEY` is not configured, but email delivery starts only after the key is added.
+The form opens WhatsApp after submitting details to the website API. Email delivery through Resend is configured, but the receiving inbox `info@designspaceandinfra.com` must still be created before that address can receive mail reliably.
